@@ -55,7 +55,14 @@ Ao abrir a aplicação ela se apresentará dessa forma:
   * Inicialize a aplicação:
     * `npm start`
 
-4. Interrompendo aplicação
+4. Como aplicação é apenas front-end, possui validação simples para acessar
+   * Insira um email no formato `email@email.com`;
+   * E uma senha com `8` dígitos;
+      * Pra ficar mais fácil :smile:
+        Email: `email@email.com` 
+        Senha: `12345678`
+
+5. Interrompendo aplicação
   * Caso tenha utilizado o *Docker* execute o comando:
     * `npm run compose:down`
   * Caso não tenha utilizado o *Docker*:
