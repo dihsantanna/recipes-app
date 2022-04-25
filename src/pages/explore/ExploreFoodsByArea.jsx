@@ -51,7 +51,7 @@ export default function ExploreFoodsByArea() {
   };
 
   return (
-    <>
+    <div className="explore-container">
       <Header title="Explorar Origem" showButton foodPage />
       <section className="dropdown-container">
         <select
@@ -92,6 +92,6 @@ export default function ExploreFoodsByArea() {
           ))}
       </section>
       <Footer />
-    </>
+    </div>
   );
 }

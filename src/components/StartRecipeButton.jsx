@@ -6,9 +6,11 @@ export default function StartRecipeButton({ doneRecipe, inProgress, id, isFood }
   return (
     !doneRecipe
       ? (
-        <Link to={ `/${isFood ? 'comidas' : 'bebidas'}/${id}/in-progress` }>
+        <Link
+          className="start-recipe-btn"
+          to={ `/${isFood ? 'comidas' : 'bebidas'}/${id}/in-progress` }
+        >
           <button
-            className="start-recipe-btn"
             type="button"
             data-testid="start-recipe-btn"
           >

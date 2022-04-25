@@ -1,14 +1,7 @@
-.loading-container {
-  height: 100vh;
-  position: fixed;
-  width: 100vw;
-  z-index: 999;
-}
-
 .detailsRecipe {
   padding-bottom: 80px;
   position: relative;
-  width: 100vw;
+  width: 100%;
 }
 
 .detailsRecipe a {
@@ -61,6 +54,22 @@
   padding-right: 10px;
 }
 
+.container-details-ingredients {
+  background-color: #fed;
+}
+
+.recipe-ingredients {
+  background-color: #fed;
+  margin: 20px 0;
+  padding-left: 25px;
+}
+
+.recipe-ingredients li {
+  margin: 0;
+  max-width: 640px;
+  padding: 0;
+}
+
 .detailsRecipe img {
   display: block;
   margin: 0 auto;
@@ -79,7 +88,7 @@
   display: flex;
   gap: 3px;
   overflow-x: scroll;
-  width: 100vw;
+  width: 100%;
 }
 
 .recommendations-recipes div {
@@ -89,19 +98,7 @@
 
 .recommendations-recipes img {
   border-radius: 3px;
-  width: 51vw;
-}
-
-.container-details-ingredients {
-  background-color: #fed;
-  padding: 0 10px;
-}
-
-.detailsRecipe ul {
-  background-color: #fed;
-  margin: 20px auto;
-  padding: 10px;
-  width: 95%;
+  width: 326.4px;
 }
 
 .recommendations-recipes span {
@@ -115,7 +112,7 @@
   padding: 3px;
   position: absolute;
   text-align: center;
-  width: 95%;
+  width: 608px;
 }
 
 
@@ -125,14 +122,22 @@
 }
 
 .start-recipe-btn {
+  bottom: 0;
+  display: block;
+  height: 40px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0;
+  position: fixed;
+  width: 360px;
+}
+
+.start-recipe-btn button {
   background-color: #673;
   border: none;
-  bottom: 0;
   color: white;
-  display: block;
   font-size: 16px;
   font-weight: 600;
-  height: 40px;
-  position: fixed;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
 }

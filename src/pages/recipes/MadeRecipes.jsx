@@ -32,7 +32,7 @@ export default function MadeRecipes() {
     if (!isMounted) getMadeRecipes();
   });
   return (
-    <div>
+    <div className="container-favorites">
       <Header title="Receitas Feitas" />
       <button
         className="filter-favorite-btn"

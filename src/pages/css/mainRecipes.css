@@ -2,12 +2,9 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  min-height: 640px;
   padding-bottom: 57px;
-  width: 100vw;
-}
-
-.loading-container {
-  height: calc(100vh - 155px);
+  width: 360px;
 }
 
 .filter-recipes {

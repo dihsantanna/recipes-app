@@ -6,9 +6,9 @@ body {
   align-items: center;
   background: #ffbb338f;
   display: flex;
-  height: 100vh;
+  height: 640px;
   justify-content: center;
-  width: 100vw;
+  width: 360px;
 }
 
 .box-form {

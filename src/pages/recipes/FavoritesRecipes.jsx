@@ -37,7 +37,7 @@ export default function FavoritesRecipes() {
     if (!isMounted) getFavoriteRecipes();
   });
   return (
-    <>
+    <div className="container-favorites">
       <Header title="Receitas Favoritas" />
       <div className="container-filters">
         <button
@@ -77,6 +77,6 @@ export default function FavoritesRecipes() {
           removeFavorite={ removeFavorite }
         />
       ))}
-    </>
+    </div>
   );
 }

@@ -1,3 +1,8 @@
+.container-favorites {
+  min-height: 640px;
+  width: 360px;
+}
+
 .filter-favorite-btn {
   background-color: #673;
   border: none;

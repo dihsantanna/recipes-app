@@ -1,13 +1,7 @@
 .progress-recipe {
   padding-bottom: 80px;
-  width: 100vw;
-}
-
-.progress-recipe .loading-container {
-  height: 100vh;
-  position: fixed;
-  width: 100vw;
-  z-index: 999;
+  position: relative;
+  width: 100%;
 }
 
 .progress-img {
@@ -85,7 +79,7 @@
   font-weight: 600;
   height: 40px;
   position: fixed;
-  width: 100vw;
+  width: 360px;
 }
 
 .progress-btn:disabled {

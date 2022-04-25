@@ -4,26 +4,28 @@
   flex-direction: column;
   height: 100vh;
   justify-content: center;
-  width: 100vw;
+  position: fixed;
+  width: 360px;
+  z-index: 999;
 }
 
 .logo-container {
   animation: degrade infinite ease 1s;
-  margin-left: 32.5vw;
-  max-width: 35vw;
+  margin-left: 32.5%;
+  max-width: 126px;
   overflow: hidden;
   transition: 0.5s;
 }
 
 .load-logo {
-  width: 35vw;
+  width: 126px;
 }
 
 @keyframes degrade {
 
   0% {
     opacity: 0;
-    width: 1vw;
+    width: 1%;
   }
 
   50% {
@@ -32,6 +34,6 @@
 
   100% {
     opacity: 8;
-    width: 35vw;
+    width: 126px;
   }
 }
