@@ -38,7 +38,7 @@ Ao abrir a aplicação ela se apresentará dessa forma:
 
 # Instruções de execução
 
-[Deploy da aplicação](https://recipes-app-dihsantanna.herokuapp.com/) 
+[Deploy da aplicação](https://receitate.herokuapp.com/) 
 * caso queira testar por aqui vá direto para o passo `4`. :sunglasses:
 ---
 
