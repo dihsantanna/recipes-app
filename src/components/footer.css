@@ -5,14 +5,11 @@
   display: flex;
   height: 55px;
   justify-content: space-around;
+  margin: 0;
   position: fixed;
-  width: 360px;
+  width: 100vw;
 }
 
-.footer a:nth-child( 2 ) {
-  align-self: center;
-}
-
-.footer a:nth-child( 3 ) {
+.footer a:nth-child( 2 ), .footer a:nth-child( 3 ) {
   align-self: center;
 }

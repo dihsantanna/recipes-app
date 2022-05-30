@@ -5,8 +5,10 @@ import { Redirect } from 'react-router-dom';
 import Footer from '../../components/Footer';
 import Header from '../../components/Header';
 import IngredientsCard from '../../components/IngredientsCard';
+import Loading from '../../components/Loading';
 import { fetchIngredientsDrinksApi } from '../../services/fetchApi';
 import { setIngredient } from '../../redux/actions';
+import '../css/exploreIngredientsDrink.css';
 
 function ExploreIngredientsDrink({ changeIngredient }) {
   const [isMount, setIsMount] = useState(false);
@@ -33,11 +35,12 @@ function ExploreIngredientsDrink({ changeIngredient }) {
     }
   });
   if (redirect) return <Redirect to="/bebidas" />;
-  if (isLoading) return <p>Carregando...</p>;
+  if (isLoading) return <Loading />;
 
   return (
-    <>
+    <div className="container-explore-ingredients-drink">
       <Header title="Explorar Ingredientes" />
+
       {arrIngredients.slice(0, MAX_INDEX).map(({ strIngredient1 }, index) => (
         <IngredientsCard
           key={ strIngredient1 }
@@ -46,8 +49,9 @@ function ExploreIngredientsDrink({ changeIngredient }) {
           isFood={ false }
           onClick={ () => filterForIngredient(strIngredient1) }
         />))}
+
       <Footer />
-    </>
+    </div>
   );
 }
 

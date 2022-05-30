@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { arrayOf, bool, number, shape, string } from 'prop-types';
 import HandleFavoriteAndShare from './HandleFavoriteAndShare';
-import './madeRecipesCard.css';
+import '../css/madeRecipesCard.css';
 
 export default function MadeRecipesCard({ recipe, index, isFood, tags, doneDate }) {
   const { image, name, category, area, alcoholicOrNot, id } = recipe;

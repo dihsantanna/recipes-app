@@ -3,7 +3,7 @@ import { fetchAreas, fetchByArea, fetchSearchFoodsApi } from '../../services/fet
 import Header from '../../components/Header';
 import RecipeCard from '../../components/RecipeCard';
 import Footer from '../../components/Footer';
-import './exploreFoodsByArea.css';
+import '../css/exploreFoodsByArea.css';
 import '../foods/FoodRecipeCards';
 import Loading from '../../components/Loading';
 
