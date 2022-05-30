@@ -29,11 +29,6 @@ Você pode acessar um protótipo no link abaixo:
 
 [PROTÓTIPO NO FIGMA](https://www.figma.com/file/kGSTb4sfG0obitUISVz3O6/App-Receitas?node-id=0%3A1)
 
-Para fins somente demonstrativos foi forçada a resolução de `364x640 `na aplicação para que fique similar ao dispositivo móvel.
-
-Ao abrir a aplicação ela se apresentará dessa forma:
-![exemplo-app](demonstra%C3%A7%C3%A3o-app.jpg)
-
 ---
 
 # Instruções de execução
