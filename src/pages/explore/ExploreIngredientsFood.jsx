@@ -7,7 +7,7 @@ import Header from '../../components/Header';
 import IngredientsCard from '../../components/IngredientsCard';
 import { fetchIngredientsFoodsApi } from '../../services/fetchApi';
 import { setIngredient } from '../../redux/actions';
-import './exploreIngredientsFood.css';
+import '../css/exploreIngredientsFood.css';
 import Loading from '../../components/Loading';
 
 function ExploreIngredientsFood({ changeIngredient }) {

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bool, func, number, shape } from 'prop-types';
 import HandleFavoriteAndShare from './HandleFavoriteAndShare';
-import './favoriteRecipesCard.css';
+import '../css/favoriteRecipesCard.css';
 
 function FavoriteRecipesCard({ recipe, index, isFood, removeFavorite }) {
   const { image, name, category, area, alcoholicOrNot, id } = recipe;

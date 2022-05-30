@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
-import './profile.css';
+import '../css/profile.css';
 import logo from '../../images/logo.svg';
 
 export default function Profile() {

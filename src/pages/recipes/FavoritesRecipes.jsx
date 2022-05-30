@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import FavoriteRecipesCard from './FavoriteRecipesCard';
 import Header from '../../components/Header';
-import './favoriteRecipes.css';
+import '../css/favoriteRecipes.css';
 
 export default function FavoritesRecipes() {
   const [favoriteRecipes, setFavoriteRecipes] = useState([]);
@@ -28,10 +28,10 @@ export default function FavoritesRecipes() {
     setFilter('bebida');
   }
 
-  function removeFavorite() {
+  const removeFavorite = () => {
     const recipes = JSON.parse(localStorage.getItem('favoriteRecipes'));
     setFilteredRecipes(recipes);
-  }
+  };
 
   useEffect(() => {
     if (!isMounted) getFavoriteRecipes();
