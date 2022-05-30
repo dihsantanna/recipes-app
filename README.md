@@ -38,7 +38,7 @@ Ao abrir a aplicação ela se apresentará dessa forma:
 
 # Instruções de execução
 
-[Deploy da aplicação](https://receitate.herokuapp.com/) 
+[Deploy da aplicação](https://receitate.netlify.app/) 
 * caso queira testar por aqui vá direto para o passo `4`. :sunglasses:
 ---
 
