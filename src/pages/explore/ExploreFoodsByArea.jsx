@@ -1,11 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import { fetchAreas, fetchByArea, fetchSearchFoodsApi } from '../../services/fetchApi';
-import Header from '../../components/Header';
-import RecipeCard from '../../components/RecipeCard';
+import React, { useEffect, useState } from 'react';
 import Footer from '../../components/Footer';
-import '../css/exploreFoodsByArea.css';
-import '../foods/FoodRecipeCards';
+import Header from '../../components/Header';
 import Loading from '../../components/Loading';
+import RecipeCard from '../../components/RecipeCard';
+import { fetchAreas, fetchByArea, fetchSearchFoodsApi } from '../../services/fetchApi';
+import '../foods/FoodRecipeCards';
 
 export default function ExploreFoodsByArea() {
   const [isMounted, setIsMounted] = useState(false);

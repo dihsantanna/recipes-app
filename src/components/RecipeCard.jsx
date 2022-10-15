@@ -1,7 +1,6 @@
+import { bool, number, string } from 'prop-types';
 import React from 'react';
-import { number, string, bool } from 'prop-types';
 import { Link } from 'react-router-dom';
-import './recipeCard.css';
 
 export default function RecipeCard({ src, name, index, alt, id, foodPage }) {
   return (

@@ -1,12 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import { shape, string } from 'prop-types';
-import { fetchDrinkById, fetchSearchFoodsApi } from '../../services/fetchApi';
-import RecommendationCard from '../../components/RecommendationCard';
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import FavoriteAndShare from '../../components/FavoriteAndShare';
-import StartRecipeButton from '../../components/StartRecipeButton';
 import Loading from '../../components/Loading';
-import '../css/detailsRecipe.css';
+import RecommendationCard from '../../components/RecommendationCard';
+import StartRecipeButton from '../../components/StartRecipeButton';
+import { fetchDrinkById, fetchSearchFoodsApi } from '../../services/fetchApi';
 
 function DetailsDrink({ match: { params: { id } } }) {
   const [state, setState] = useState({
@@ -109,7 +108,7 @@ function DetailsDrink({ match: { params: { id } } }) {
         </ul>
       </div>
       <p className="instructions" data-testid="instructions">{drink.strInstructions}</p>
-      <section section className="recommendations-recipes">
+      <section className="recommendations-recipes">
         {recommendations.map((food, index) => (
           <RecommendationCard
             id={ food.idMeal }

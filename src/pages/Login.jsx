@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import Input from '../components/Input';
-import './login.css';
 import logo from '../images/logo.svg';
 
 export default function Login() {
   const [state, setState] = useState({ email: '', password: '' });
+  const history = useHistory();
 
   const handleChange = ({ target: { name, value } }) => {
     setState({ ...state, [name]: value });
@@ -32,6 +32,8 @@ export default function Login() {
     localStorage.setItem('mealsToken', JSON.stringify(1));
     localStorage.setItem('cocktailsToken', JSON.stringify(1));
     localStorage.setItem('user', JSON.stringify({ email }));
+
+    history.push('/comidas');
   };
 
   return (
@@ -64,16 +66,15 @@ export default function Login() {
           classNameLabel="label-login"
           classNameInput="input-login"
         />
-        <Link to="/comidas" className="login-btn">
-          <button
-            data-testid="login-submit-btn"
-            type="button"
-            onClick={ handleClick }
-            disabled={ !loginIsValid() }
-          >
-            Entrar
-          </button>
-        </Link>
+        <button
+          data-testid="login-submit-btn"
+          className="login-btn"
+          type="button"
+          onClick={ handleClick }
+          disabled={ !loginIsValid() }
+        >
+          Entrar
+        </button>
       </form>
     </div>
   );

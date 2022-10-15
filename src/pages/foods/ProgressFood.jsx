@@ -1,12 +1,11 @@
-import React, { useEffect, useState } from 'react';
-import { Redirect, Link } from 'react-router-dom';
 import { shape, string } from 'prop-types';
-import { fetchFoodById } from '../../services/fetchApi';
+import React, { useEffect, useState } from 'react';
+import { Link, Redirect } from 'react-router-dom';
 import FavoriteAndShare from '../../components/FavoriteAndShare';
 import Input from '../../components/Input';
-import handleDoneRecipes from '../../helpers/handleDoneRecipes';
 import Loading from '../../components/Loading';
-import '../css/progressRecipe.css';
+import handleDoneRecipes from '../../helpers/handleDoneRecipes';
+import { fetchFoodById } from '../../services/fetchApi';
 
 const ProgressFood = ({ match: { params: { id } } }) => {
   const initialState = {

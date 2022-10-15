@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import FavoriteRecipesCard from './FavoriteRecipesCard';
+import React, { useEffect, useState } from 'react';
 import Header from '../../components/Header';
-import '../css/favoriteRecipes.css';
+import FavoriteRecipesCard from './FavoriteRecipesCard';
 
 export default function FavoritesRecipes() {
   const [favoriteRecipes, setFavoriteRecipes] = useState([]);

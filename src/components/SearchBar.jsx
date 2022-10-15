@@ -1,10 +1,9 @@
+import { arrayOf, bool, func, shape } from 'prop-types';
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { bool, func, arrayOf, shape } from 'prop-types';
 import { Redirect } from 'react-router-dom';
-import Input from './Input';
 import { fetchSearchRecipes } from '../redux/actions';
-import './searchbar.css';
+import Input from './Input';
 
 const MSG_ALERT = 'Sua busca deve conter somente 1 (um) caracter';
 

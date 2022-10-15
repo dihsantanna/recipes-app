@@ -1,11 +1,10 @@
+import { bool, string } from 'prop-types';
 import React, { useState } from 'react';
-import { string, bool } from 'prop-types';
 import { Link } from 'react-router-dom';
+import folha from '../images/folha.svg';
 import profileIcon from '../images/profileIcon.svg';
 import searchIcon from '../images/searchIcon.svg';
 import SearchBar from './SearchBar';
-import folha from '../images/folha.svg';
-import './header.css';
 
 function Header({ title, showButton, foodPage }) {
   const [showAndHideSearchBar, setShowAndHideSearchBar] = useState(false);

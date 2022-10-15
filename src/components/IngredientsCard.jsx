@@ -1,6 +1,5 @@
 import { bool, func, number, string } from 'prop-types';
 import React from 'react';
-import './ingredientsCard.css';
 
 export default function IngredientsCard({ index, name, isFood, onClick }) {
   const END_POINT = isFood ? 'https://www.themealdb.com/images/ingredients/'

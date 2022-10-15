@@ -1,14 +1,13 @@
-import React, { useState, useEffect } from 'react';
-import { connect } from 'react-redux';
 import { func } from 'prop-types';
+import React, { useEffect, useState } from 'react';
+import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import Footer from '../../components/Footer';
 import Header from '../../components/Header';
 import IngredientsCard from '../../components/IngredientsCard';
-import { fetchIngredientsFoodsApi } from '../../services/fetchApi';
-import { setIngredient } from '../../redux/actions';
-import '../css/exploreIngredientsFood.css';
 import Loading from '../../components/Loading';
+import { setIngredient } from '../../redux/actions';
+import { fetchIngredientsFoodsApi } from '../../services/fetchApi';
 
 function ExploreIngredientsFood({ changeIngredient }) {
   const [isMount, setIsMount] = useState(false);

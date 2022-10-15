@@ -1,13 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import { bool, func, string } from 'prop-types';
+import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
-import { func, bool, string } from 'prop-types';
-import { fetchSearchRecipes, setIngredient } from '../../redux/actions';
 import Footer from '../../components/Footer';
 import Header from '../../components/Header';
+import Loading from '../../components/Loading';
+import { fetchSearchRecipes, setIngredient } from '../../redux/actions';
 import DrinkRecipeCards from './DrinkRecipeCards';
 import FiltersRecipesDrinks from './FiltersRecipesDrinks';
-import '../css/mainRecipes.css';
-import Loading from '../../components/Loading';
 
 function Drinks({ setRecipes, isFetching, selectIngredient, changeIngredient }) {
   const [isMount, setIsMount] = useState(false);

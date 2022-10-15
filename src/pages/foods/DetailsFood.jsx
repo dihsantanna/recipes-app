@@ -1,13 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import { shape, string } from 'prop-types';
-import { fetchFoodById, fetchSearchDrinksApi } from '../../services/fetchApi';
-import RecommendationCard from '../../components/RecommendationCard';
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import FavoriteAndShare from '../../components/FavoriteAndShare';
-import Video from './Video';
-import StartRecipeButton from '../../components/StartRecipeButton';
 import Loading from '../../components/Loading';
-import '../css/detailsRecipe.css';
+import RecommendationCard from '../../components/RecommendationCard';
+import StartRecipeButton from '../../components/StartRecipeButton';
+import { fetchFoodById, fetchSearchDrinksApi } from '../../services/fetchApi';
+import Video from './Video';
 
 function DetailsFood({ match: { params: { id } } }) {
   const [state, setState] = useState({
