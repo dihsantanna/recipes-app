@@ -181,7 +181,6 @@ export const fetchByArea = async (area) => {
   try {
     const response = await fetch(FOOD_BY_AREA + area);
     const data = await response.json();
-    console.log(data.meals);
     return data.meals || [];
   } catch (error) {
     console.log(error);
