@@ -12,7 +12,6 @@
   z-index: 1;
 
   .profile-logo {
-    grid-area: profile;
     text-align: center;
   }
 
@@ -32,6 +31,12 @@
   .btn-search {
     background-color: transparent;
     border: none;
+    cursor: pointer;
+    opacity: 0.9;
     text-align: center;
+
+    &:hover {
+      opacity: 1;
+    }
   }
 }
