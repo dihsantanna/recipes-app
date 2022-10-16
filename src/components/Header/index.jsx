@@ -1,10 +1,10 @@
 import { bool, string } from 'prop-types';
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import folha from '../images/folha.svg';
-import profileIcon from '../images/profileIcon.svg';
-import searchIcon from '../images/searchIcon.svg';
-import SearchBar from './SearchBar';
+import folha from '../../images/folha.svg';
+import profileIcon from '../../images/profileIcon.svg';
+import searchIcon from '../../images/searchIcon.svg';
+import SearchBar from '../SearchBar';
 
 function Header({ title, showButton, foodPage }) {
   const [showAndHideSearchBar, setShowAndHideSearchBar] = useState(false);
@@ -26,7 +26,7 @@ function Header({ title, showButton, foodPage }) {
                 data-testid="page-title"
               >
                 {title}
-                <img className="logo-folha" src={ folha } alt="logo folha" />
+                <img src={ folha } alt="logo folha" />
               </h2>
             )
             : ''
