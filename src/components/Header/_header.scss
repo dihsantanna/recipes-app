@@ -7,7 +7,9 @@
   justify-content: space-between;
   height: 50px;
   padding: 0 1rem;
+  position: relative;
   width: 100vw;
+  z-index: 1;
 
   .profile-logo {
     grid-area: profile;

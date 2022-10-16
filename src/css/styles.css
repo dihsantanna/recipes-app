@@ -106,7 +106,9 @@
   justify-content: space-between;
   height: 50px;
   padding: 0 1rem;
+  position: relative;
   width: 100vw;
+  z-index: 1;
 }
 .container-header .profile-logo {
   grid-area: profile;
@@ -127,6 +129,72 @@
   background-color: transparent;
   border: none;
   text-align: center;
+}
+
+.nav-search {
+  align-items: center;
+  background-color: rgb(255, 119, 17);
+  border-radius: 0 0 0.25rem 0.25rem;
+  display: flex;
+  flex-direction: column;
+  height: 130px;
+  justify-content: space-between;
+  margin-top: -130px;
+  padding: 0.25rem 0;
+  position: relative;
+  transition: margin-top 0.4s ease-in-out;
+  z-index: 0;
+}
+.nav-search label {
+  max-width: 375px;
+  width: 70%;
+}
+.nav-search label .input-searchbar {
+  border: 2px solid rgb(204, 204, 204);
+  border-radius: 0.3rem;
+  outline: none;
+  padding: 0.95rem 0.5rem;
+  max-height: 40px;
+  margin-top: 5px;
+  width: 100%;
+}
+.nav-search label .input-searchbar:focus {
+  border: 2px solid rgb(91, 140, 22);
+  box-shadow: 0 0 0 2px rgb(91, 140, 22);
+}
+.nav-search .searchbar-btn {
+  border: 1px solid transparent;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  opacity: 0.9;
+  padding: 0.7rem 0.5rem;
+  transition: all 0.3s ease-in-out;
+  background-color: rgb(91, 140, 22);
+  color: white;
+  max-width: 375px;
+  width: 70%;
+}
+.nav-search .searchbar-btn:hover {
+  border: 1px solid rgb(91, 140, 22);
+  box-shadow: 0 0 0 2px rgb(91, 140, 22);
+  opacity: 1;
+}
+.nav-search .searchbar-btn:disabled {
+  background-color: rgb(107, 132, 72);
+  color: rgb(204, 204, 204);
+  opacity: 1;
+}
+.nav-search div {
+  max-width: 375px;
+  text-align: center;
+  width: 100%;
+}
+.nav-search div .radio-searchBar {
+  margin: 0 5px;
+}
+
+.openSearch {
+  margin-top: -1px;
 }
 
 * {
@@ -153,8 +221,7 @@ body::-webkit-scrollbar-thumb {
   border-radius: 30%;
   border: 2px solid rgb(91, 140, 22);
 }
-
-#root {
+body #root {
   height: 100vh;
   width: 100vw;
 }/*# sourceMappingURL=styles.css.map */

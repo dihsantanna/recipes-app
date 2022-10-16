@@ -49,7 +49,10 @@ function Header({ title, showButton, foodPage }) {
             : ''
         }
       </header>
-      {showAndHideSearchBar && <SearchBar foodPage={ foodPage } /> }
+      <SearchBar
+        foodPage={ foodPage }
+        open={ showAndHideSearchBar }
+      />
     </>
   );
 }

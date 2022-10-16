@@ -2,12 +2,12 @@ import { arrayOf, bool, func, shape } from 'prop-types';
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import { fetchSearchRecipes } from '../redux/actions';
-import Input from './Input';
+import { fetchSearchRecipes } from '../../redux/actions';
+import Input from '../Input';
 
 const MSG_ALERT = 'Sua busca deve conter somente 1 (um) caracter';
 
-function SearchBar({ foodPage, searchRecipes, recipes }) {
+function SearchBar({ foodPage, searchRecipes, recipes, open }) {
   const [state, setState] = useState({
     query: '',
     consultBy: 'ingredient',
@@ -42,7 +42,7 @@ function SearchBar({ foodPage, searchRecipes, recipes }) {
   const typeId = foodPage ? 'idMeal' : 'idDrink';
 
   return (
-    <nav className="nav-search">
+    <nav className={ `nav-search ${open ? 'openSearch' : ''}` }>
       {recipes.length === 1
         ? <Redirect to={ `/${typeRecipe}/${recipes[0][typeId]}` } />
         : ''}
@@ -102,6 +102,7 @@ SearchBar.propTypes = {
   foodPage: bool,
   searchRecipes: func.isRequired,
   recipes: arrayOf(shape()).isRequired,
+  open: bool.isRequired,
 };
 
 SearchBar.defaultProps = {

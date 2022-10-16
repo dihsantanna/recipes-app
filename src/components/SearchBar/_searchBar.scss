@@ -1,0 +1,48 @@
+.nav-search {
+  align-items: center;
+  background-color: $orange;
+  border-radius: 0 0 0.25rem 0.25rem;
+  display: flex;
+  flex-direction: column;
+  height: 130px;
+  justify-content: space-between;
+  margin-top: -130px;
+  padding: 0.25rem 0;
+  position: relative;
+  transition: margin-top 0.4s ease-in-out;
+  z-index: 0;
+
+  label {
+    max-width: 375px;
+    width: 70%;
+
+    .input-searchbar {
+      @include genericInput();
+      max-height: 40px;
+      margin-top: 5px;
+      width: 100%;
+    }
+  }
+
+  .searchbar-btn {
+    @include genericButton();
+    background-color: $green-leaf;
+    color: white;
+    max-width: 375px;
+    width: 70%;
+  }
+
+  div {
+    max-width: 375px;
+    text-align: center;
+    width: 100%;
+
+    .radio-searchBar {
+      margin: 0 5px;
+    }
+  }
+}
+
+.openSearch {
+  margin-top: -1px;
+}
