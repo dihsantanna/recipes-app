@@ -207,7 +207,7 @@
   background-color: rgb(24, 24, 27);
   border-radius: 0.25rem 0.25rem 0 0;
   border-top: 1px solid rgb(255, 119, 17);
-  bottom: 0;
+  bottom: -1px;
   display: flex;
   height: 55px;
   justify-content: space-around;
