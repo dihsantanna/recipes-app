@@ -1,0 +1,28 @@
+.filter-recipes {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  height: 100px;
+  justify-content: space-evenly;
+  margin: 0 auto;
+  max-width: 375px;
+  padding: 1rem 0;
+  width: 100vw;
+
+  button {
+    @include genericButton();
+    color: white;
+    padding: 0.25rem 0.5rem;
+    width: 30%;
+  }
+}
+
+.main-recipes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  padding-bottom: 70px;
+  width: 100vw;
+}

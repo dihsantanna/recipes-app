@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import { connect } from 'react-redux';
 import { func } from 'prop-types';
-import { fetchCategoriesFoodsApi } from '../../services/fetchApi';
+import React, { useEffect, useState } from 'react';
+import { connect } from 'react-redux';
 import { fetchRecipesForCategory, fetchSearchRecipes } from '../../redux/actions';
+import { fetchCategoriesFoodsApi } from '../../services/fetchApi';
 
 const PARAMS_NOT_FILTER = { query: '', consultBy: 'name', foodPage: true };
 
@@ -54,14 +54,21 @@ function FiltersRecipesFoods({ getCategory, recipesNotFilter }) {
           data-testid={ `${strCategory}-category-filter` }
           name={ strCategory }
           onClick={ ({ target }) => handleClick(target) }
-          style={ { backgroundColor: category === strCategory ? '#350' : '#673' } }
+          style={ {
+            backgroundColor: category === strCategory
+              ? 'rgb(91, 140, 22)'
+              : 'rgb(107, 132, 72)',
+          } }
         >
           {strCategory}
         </button>
       ))}
       <button
-        className="filter-recipes-btn"
-        style={ { backgroundColor: category === 'All' ? '#350' : '#673' } }
+        style={ {
+          backgroundColor: category === 'All'
+            ? 'rgb(91, 140, 22)'
+            : 'rgb(107, 132, 72)',
+        } }
         type="button"
         data-testid="All-category-filter"
         onClick={ setCategoryAll }

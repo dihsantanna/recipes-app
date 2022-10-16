@@ -1,10 +1,11 @@
 .link-card-foods {
+  background-color: $opaque;
+  border: 2px solid $orange;
   border-radius: 0.25rem;
-  box-shadow: 0 0 5px 2px $green-leaf;
   height: 95vw;
   max-height: 375px;
   max-width: 375px;
-  width: 95vw;
+  width: 92vw;
 
   a {
     border-radius: 0.25rem;
@@ -40,5 +41,23 @@
       text-align: center;
       width: 100%;
     }
+  }
+}
+
+@media screen and (min-width: 1080px) {
+  .link-card-foods {
+
+    div {
+      overflow: hidden;
+    }
+
+    img {
+      transition: all 0.6s ease-in-out;
+
+      &:hover {
+        transform: scale(1.5);
+      }
+    }
+
   }
 }
