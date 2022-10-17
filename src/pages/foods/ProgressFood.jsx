@@ -7,7 +7,7 @@ import Loading from '../../components/Loading';
 import handleDoneRecipes from '../../helpers/handleDoneRecipes';
 import { fetchFoodById } from '../../services/fetchApi';
 
-const ProgressFood = ({ match: { params: { id } } }) => {
+function ProgressFood({ match: { params: { id } } }) {
   const initialState = {
     cocktails: {},
     meals: { [id]: [] },
@@ -132,7 +132,7 @@ const ProgressFood = ({ match: { params: { id } } }) => {
       </button>
     </div>
   );
-};
+}
 
 ProgressFood.propTypes = {
   match: shape({
