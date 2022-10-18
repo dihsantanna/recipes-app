@@ -26,10 +26,14 @@ function Foods({ setRecipes, isFetching, selectIngredient, changeIngredient }) {
   return (
     <>
       <Header title="Comidas" showButton foodPage />
-      <FiltersRecipesFoods />
       {isFetching
         ? <Loading />
-        : <FoodRecipeCards />}
+        : (
+          <>
+            <FiltersRecipesFoods />
+            <FoodRecipeCards />
+          </>
+        )}
       <Footer />
     </>
   );

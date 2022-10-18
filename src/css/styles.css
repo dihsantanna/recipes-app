@@ -278,6 +278,56 @@
     transform: scale(1.5);
   }
 }
+.loading-container {
+  align-items: center;
+  background: rgba(39, 39, 42, 0.6);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  z-index: 0;
+}
+
+.logo-container {
+  -webkit-animation: degrade infinite ease 1s;
+          animation: degrade infinite ease 1s;
+  max-width: 375px;
+  overflow: hidden;
+  transition: 0.5s;
+  width: 60vw;
+}
+
+.load-logo {
+  width: 100%;
+}
+
+@-webkit-keyframes degrade {
+  0% {
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.2;
+  }
+}
+
+@keyframes degrade {
+  0% {
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.2;
+  }
+}
 .filter-recipes {
   align-items: center;
   display: flex;

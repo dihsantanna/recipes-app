@@ -25,10 +25,14 @@ function Drinks({ setRecipes, isFetching, selectIngredient, changeIngredient }) 
   return (
     <>
       <Header title="Bebidas" showButton />
-      <FiltersRecipesDrinks />
       {isFetching
         ? <Loading />
-        : <DrinkRecipeCards />}
+        : (
+          <>
+            <FiltersRecipesDrinks />
+            <DrinkRecipeCards />
+          </>
+        )}
       <Footer />
     </>
   );
