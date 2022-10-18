@@ -17,15 +17,17 @@
     width: 70%;
 
     .input-searchbar {
-      @include genericInput();
-      max-height: 40px;
+
+      @include generic-input;
       margin-top: 5px;
+      max-height: 40px;
       width: 100%;
     }
   }
 
   .searchbar-btn {
-    @include genericButton();
+
+    @include generic-button;
     background-color: $green-leaf;
     color: white;
     max-width: 375px;
@@ -37,12 +39,12 @@
     text-align: center;
     width: 100%;
 
-    .radio-searchBar {
+    .radio-searchbar {
       margin: 0 5px;
     }
   }
 }
 
-.openSearch {
+.open-search {
   margin-top: -1px;
 }

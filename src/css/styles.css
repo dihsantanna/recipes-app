@@ -97,45 +97,54 @@
     width: 70%;
   }
 }
-.container-header {
+.loading-container {
   align-items: center;
-  background-color: rgb(24, 24, 27);
-  border-radius: 0 0 0.25rem 0.25rem;
-  border-bottom: 1px solid rgb(255, 119, 17);
-  color: rgb(91, 140, 22);
+  background: rgba(39, 39, 42, 0.6);
   display: flex;
-  justify-content: space-between;
-  height: 50px;
-  padding: 0 1rem;
-  position: relative;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+  left: 0;
+  position: fixed;
+  top: 0;
   width: 100vw;
-  z-index: 1;
+  z-index: 0;
 }
-.container-header .profile-logo {
-  text-align: center;
+.loading-container .logo-container {
+  -webkit-animation: degrade infinite both 1s;
+          animation: degrade infinite both 1s;
+  max-width: 375px;
+  overflow: hidden;
+  transition: 0.5s;
+  width: 60vw;
 }
-.container-header .header-title {
-  font-family: Rochester, cursive;
-  font-size: 1.87rem;
-  font-weight: 500;
-  text-align: center;
-}
-.container-header .header-title img {
-  margin-left: -1.5px;
-  transform: rotate(-45deg);
-  width: 30px;
-}
-.container-header .btn-search {
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  opacity: 0.9;
-  text-align: center;
-}
-.container-header .btn-search:hover {
-  opacity: 1;
+.loading-container .logo-container .load-logo {
+  width: 100%;
 }
 
+@-webkit-keyframes degrade {
+  0% {
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.2;
+  }
+}
+
+@keyframes degrade {
+  0% {
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.2;
+  }
+}
 .nav-search {
   align-items: center;
   background-color: rgb(255, 119, 17);
@@ -159,8 +168,8 @@
   border-radius: 0.3rem;
   outline: none;
   padding: 0.95rem 0.5rem;
-  max-height: 40px;
   margin-top: 5px;
+  max-height: 40px;
   width: 100%;
 }
 .nav-search label .input-searchbar:focus {
@@ -194,35 +203,12 @@
   text-align: center;
   width: 100%;
 }
-.nav-search div .radio-searchBar {
+.nav-search div .radio-searchbar {
   margin: 0 5px;
 }
 
-.openSearch {
+.open-search {
   margin-top: -1px;
-}
-
-.footer {
-  align-items: center;
-  background-color: rgb(24, 24, 27);
-  border-radius: 0.25rem 0.25rem 0 0;
-  border-top: 1px solid rgb(255, 119, 17);
-  bottom: -1px;
-  display: flex;
-  height: 55px;
-  justify-content: space-around;
-  position: fixed;
-  width: 100vw;
-  z-index: 1;
-}
-.footer a:nth-child(1) img {
-  height: 47px;
-}
-.footer a:nth-child(2) img {
-  height: 37px;
-}
-.footer a:nth-child(3) img {
-  height: 34px;
 }
 
 .link-card-foods {
@@ -276,56 +262,68 @@
     transform: scale(1.5);
   }
 }
-.loading-container {
+.container-header {
   align-items: center;
-  background: rgba(39, 39, 42, 0.6);
+  background-color: rgb(24, 24, 27);
+  border-bottom: 1px solid rgb(255, 119, 17);
+  border-radius: 0 0 0.25rem 0.25rem;
+  color: rgb(91, 140, 22);
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  height: 100vh;
-  left: 0;
-  position: fixed;
-  top: 0;
+  height: 50px;
+  justify-content: space-between;
+  padding: 0 1rem;
+  position: relative;
   width: 100vw;
-  z-index: 0;
+  z-index: 1;
+}
+.container-header .profile-logo {
+  text-align: center;
+}
+.container-header .header-title {
+  font-family: Rochester, cursive;
+  font-size: 1.87rem;
+  font-weight: 500;
+  text-align: center;
+}
+.container-header .header-title img {
+  margin-left: -1.5px;
+  transform: rotate(-45deg);
+  width: 30px;
+}
+.container-header .btn-search {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  opacity: 0.9;
+  text-align: center;
+}
+.container-header .btn-search:hover {
+  opacity: 1;
 }
 
-.logo-container {
-  -webkit-animation: degrade infinite ease 1s;
-          animation: degrade infinite ease 1s;
-  max-width: 375px;
-  overflow: hidden;
-  transition: 0.5s;
-  width: 60vw;
+.footer {
+  align-items: center;
+  background-color: rgb(24, 24, 27);
+  border-radius: 0.25rem 0.25rem 0 0;
+  border-top: 1px solid rgb(255, 119, 17);
+  bottom: -1px;
+  display: flex;
+  height: 55px;
+  justify-content: space-around;
+  position: fixed;
+  width: 100vw;
+  z-index: 1;
+}
+.footer a:nth-child(1) img {
+  height: 47px;
+}
+.footer a:nth-child(2) img {
+  height: 37px;
+}
+.footer a:nth-child(3) img {
+  height: 34px;
 }
 
-.load-logo {
-  width: 100%;
-}
-
-@-webkit-keyframes degrade {
-  0% {
-    opacity: 0.2;
-  }
-  50% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0.2;
-  }
-}
-
-@keyframes degrade {
-  0% {
-    opacity: 0.2;
-  }
-  50% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0.2;
-  }
-}
 .filter-recipes {
   align-items: center;
   display: flex;
@@ -365,28 +363,20 @@
   flex-wrap: wrap;
   gap: 1rem;
   justify-content: center;
+  overflow-y: auto;
   padding-bottom: 70px;
   width: 100vw;
 }
 
 * {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-}
-
-a {
-  cursor: pointer;
-  opacity: 0.9;
-  text-decoration: none;
-}
-a:hover {
-  opacity: 1;
 }
 
 body {
   background-color: rgb(39, 39, 42);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  font-family: -apple-system, Segoe UI, Roboto, sans-serif;
   height: 100vh;
   position: relative;
   width: 100vw;
@@ -398,10 +388,15 @@ body::-webkit-scrollbar {
 }
 body::-webkit-scrollbar-thumb {
   background-color: rgb(91, 140, 22);
-  border-radius: 30%;
   border: 2px solid rgb(91, 140, 22);
+  border-radius: 30%;
 }
 
-.main-recipes {
-  overflow-y: auto;
+a {
+  cursor: pointer;
+  opacity: 0.9;
+  text-decoration: none;
+}
+a:hover {
+  opacity: 1;
 }/*# sourceMappingURL=styles.css.map */

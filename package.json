@@ -33,7 +33,7 @@
     "test": "react-scripts test",
     "test-coverage": "react-scripts test --coverage --watchAll=false",
     "eject": "react-scripts eject",
-    "lint:styles": "npx stylelint .",
+    "lint:styles": "npx stylelint src/**/*.scss",
     "lint": "eslint --no-inline-config --no-error-on-unmatched-pattern -c .eslintrc.json . --ext .js,.jsx",
     "compose:up": "docker-compose up -d",
     "compose:down": "docker-compose down"
@@ -73,6 +73,7 @@
     "mochawesome-merge": "^4.1.0",
     "mochawesome-report-generator": "6.2.0",
     "stylelint": "14.14.0",
+    "stylelint-config-standard-scss": "^5.0.0",
     "stylelint-order": "5.0.0"
   },
   "jest": {

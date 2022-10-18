@@ -1,29 +1,21 @@
-@import "./colors";
-@import "../pages/login.scss";
-@import "../components/global";
-@import "../pages/styles/global";
+@import './colors';
+
+@import '../pages/login';
+
+@import '../components/global';
+
+@import '../pages/styles/global';
 
 * {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
 
-a {
-  cursor: pointer;
-  opacity: 0.9;
-  text-decoration: none;
-
-  &:hover {
-    opacity: 1;
-  }
-}
 
 body {
   background-color: $sweet-dark;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: -apple-system, Segoe UI, Roboto, sans-serif;
   height: 100vh;
   position: relative;
   width: 100vw;
@@ -36,12 +28,17 @@ body {
 
   &::-webkit-scrollbar-thumb {
     background-color: $green-leaf;
-    border-radius: 30%;
     border: 2px solid $green-leaf;
+    border-radius: 30%;
   }
 }
 
-// usando para estilizar o footer
-.main-recipes {
-  overflow-y: auto;
+a {
+  cursor: pointer;
+  opacity: 0.9;
+  text-decoration: none;
+
+  &:hover {
+    opacity: 1;
+  }
 }

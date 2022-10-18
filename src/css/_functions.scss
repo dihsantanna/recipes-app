@@ -1,4 +1,4 @@
-@mixin genericInput() {
+@mixin generic-input {
   border: 2px solid $smoke;
   border-radius: 0.3rem;
   outline: none;
@@ -10,7 +10,7 @@
   }
 }
 
-@mixin genericButton() {
+@mixin generic-button {
   border: 1px solid transparent;
   border-radius: 0.3rem;
   cursor: pointer;

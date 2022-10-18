@@ -11,7 +11,8 @@
   width: 100vw;
 
   button {
-    @include genericButton();
+
+    @include generic-button;
     color: white;
     padding: 0.25rem 0.5rem;
     width: 30%;
@@ -23,6 +24,7 @@
   flex-wrap: wrap;
   gap: 1rem;
   justify-content: center;
+  overflow-y: auto;
   padding-bottom: 70px;
   width: 100vw;
 }

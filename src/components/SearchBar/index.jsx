@@ -42,7 +42,7 @@ function SearchBar({ foodPage, searchRecipes, recipes, open }) {
   const typeId = foodPage ? 'idMeal' : 'idDrink';
 
   return (
-    <nav className={ `nav-search ${open ? 'openSearch' : ''}` }>
+    <nav className={ `nav-search ${open ? 'open-search' : ''}` }>
       {recipes.length === 1
         ? <Redirect to={ `/${typeRecipe}/${recipes[0][typeId]}` } />
         : ''}
@@ -71,7 +71,7 @@ function SearchBar({ foodPage, searchRecipes, recipes, open }) {
           textLabel="Ingrediente"
           value="ingredient"
           checked={ consultBy === 'ingredient' }
-          classNameInput="radio-searchBar"
+          classNameInput="radio-searchbar"
         />
         <Input
           id="name-search-radio"
@@ -81,7 +81,7 @@ function SearchBar({ foodPage, searchRecipes, recipes, open }) {
           textLabel="Nome"
           value="name"
           checked={ consultBy === 'name' }
-          classNameInput="radio-searchBar"
+          classNameInput="radio-searchbar"
         />
         <Input
           id="first-letter-search-radio"
@@ -91,7 +91,7 @@ function SearchBar({ foodPage, searchRecipes, recipes, open }) {
           textLabel="Primeira Letra"
           value="first-letter"
           checked={ consultBy === 'first-letter' }
-          classNameInput="radio-searchBar"
+          classNameInput="radio-searchbar"
         />
       </div>
     </nav>

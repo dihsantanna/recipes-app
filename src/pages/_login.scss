@@ -1,5 +1,6 @@
-@import "../css/colors";
-@import "../css/functions";
+@import '../css/colors';
+
+@import '../css/functions';
 
 .container-form {
   align-items: center;
@@ -39,14 +40,16 @@
     width: 90%;
 
     .input-login {
-      @include genericInput();
+
+      @include generic-input;
       height: 30px;
       width: 100%;
     }
   }
 
   .login-btn {
-    @include genericButton();
+
+    @include generic-button;
     background-color: $green-leaf;
     color: white;
     font-size: 16px;

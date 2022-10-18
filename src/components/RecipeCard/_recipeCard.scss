@@ -45,7 +45,8 @@
   }
 }
 
-@media screen and (min-width: 1080px) {
+@media screen and (min-width : 1080px) {
+
   .link-card-foods {
 
     img {
@@ -55,6 +56,5 @@
         transform: scale(1.5);
       }
     }
-
   }
 }

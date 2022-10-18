@@ -1,12 +1,12 @@
 .container-header {
   align-items: center;
   background-color: $dark;
-  border-radius: 0 0 0.25rem 0.25rem;
   border-bottom: 1px solid $orange;
+  border-radius: 0 0 0.25rem 0.25rem;
   color: $green-leaf;
   display: flex;
-  justify-content: space-between;
   height: 50px;
+  justify-content: space-between;
   padding: 0 1rem;
   position: relative;
   width: 100vw;
