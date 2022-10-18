@@ -246,12 +246,13 @@
   flex-direction: column;
   height: 100%;
   justify-content: space-around;
+  overflow: hidden;
   position: relative;
   width: 100%;
 }
 .link-card-foods a img {
   border-radius: 0.25rem;
-  width: 100%;
+  width: 110%;
 }
 .link-card-foods a span {
   background-color: rgba(240, 248, 255, 0.7);
@@ -268,9 +269,6 @@
 }
 
 @media screen and (min-width: 1080px) {
-  .link-card-foods div {
-    overflow: hidden;
-  }
   .link-card-foods img {
     transition: all 0.6s ease-in-out;
   }
