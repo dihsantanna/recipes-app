@@ -21,7 +21,7 @@ body {
   width: 100vw;
 
   &::-webkit-scrollbar {
-    background-color: $orange;
+    background-color: $dark;
     height: 5px;
     width: 5px;
   }
@@ -29,8 +29,9 @@ body {
   &::-webkit-scrollbar-thumb {
     background-color: $green-leaf;
     border: 2px solid $green-leaf;
-    border-radius: 30%;
+    border-radius: 0.5rem;
   }
+
 }
 
 a {
@@ -40,5 +41,23 @@ a {
 
   &:hover {
     opacity: 1;
+  }
+}
+
+#root {
+  height: 100%;
+  margin: 0 auto;
+  max-width: 1366px;
+  position: relative;
+  width: 100%;
+}
+
+@media screen and (min-width: 1000px) {
+
+  body {
+    &::-webkit-scrollbar {
+      height: 10px;
+      width: 10px;
+    }
   }
 }

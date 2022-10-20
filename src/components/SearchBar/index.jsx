@@ -42,7 +42,7 @@ function SearchBar({ foodPage, searchRecipes, recipes, open }) {
   const typeId = foodPage ? 'idMeal' : 'idDrink';
 
   return (
-    <nav className={ `nav-search ${open ? 'open-search' : ''}` }>
+    <nav className={ `nav-search ${open ? 'open-search' : 'close-search'}` }>
       {recipes.length === 1
         ? <Redirect to={ `/${typeRecipe}/${recipes[0][typeId]}` } />
         : ''}

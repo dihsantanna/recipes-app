@@ -1,3 +1,4 @@
+/* stylelint-disable selector-class-pattern */
 .container-madeRecipes-card {
   background-color: #fed;
   border-radius: 5px;
@@ -37,7 +38,7 @@
 }
 
 .container-tag {
-  background-color: rgba(255, 187, 51, 0.267);
+  background-color: rgb(255 187 51 / 26.7%);
   border-radius: 12px;
   font-size: 14px;
   left: 180px;

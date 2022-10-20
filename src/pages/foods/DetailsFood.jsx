@@ -74,7 +74,7 @@ function DetailsFood({ match: { params: { id } } }) {
     key.includes('strMeasure') && !!food[key]));
 
   return (
-    <div className="detailsRecipe">
+    <div className="details-recipe">
       <Link className="to-home" to="/comidas">
         <i className="bi bi-house-fill" />
       </Link>
@@ -82,6 +82,7 @@ function DetailsFood({ match: { params: { id } } }) {
         src={ food.strMealThumb }
         alt="recipe"
         data-testid="recipe-photo"
+        className="recipe-image"
       />
       <section className="recipe-title-container">
         <h1 data-testid="recipe-title">{food.strMeal}</h1>

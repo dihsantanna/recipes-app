@@ -107,7 +107,7 @@
   left: 0;
   position: fixed;
   top: 0;
-  width: 100vw;
+  width: 100%;
   z-index: 0;
 }
 .loading-container .logo-container {
@@ -273,7 +273,7 @@
   justify-content: space-between;
   padding: 0 1rem;
   position: relative;
-  width: 100vw;
+  width: 100%;
   z-index: 1;
 }
 .container-header .profile-logo {
@@ -310,8 +310,9 @@
   display: flex;
   height: 55px;
   justify-content: space-around;
+  max-width: 1366px;
   position: fixed;
-  width: 100vw;
+  width: 100%;
   z-index: 1;
 }
 .footer a:nth-child(1) img {
@@ -324,6 +325,61 @@
   height: 34px;
 }
 
+.favorite-and-share {
+  align-items: center;
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+  width: 100%;
+}
+.favorite-and-share div {
+  display: flex;
+  gap: 0.7rem;
+  justify-content: flex-end;
+  width: 50%;
+}
+.favorite-and-share div .share-btn {
+  background: none;
+  border: none;
+}
+.favorite-and-share div .favorite-btn {
+  background: none;
+  border: none;
+  padding-right: 10px;
+}
+.favorite-and-share div .msg-share {
+  -webkit-animation: eraseMsg 4.1s linear;
+          animation: eraseMsg 4.1s linear;
+  border-radius: 0.5rem;
+  color: white;
+  font-size: 16px;
+  right: 0;
+  padding: 5px;
+  position: absolute;
+  text-align: center;
+  top: -35px;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+}
+
+@-webkit-keyframes eraseMsg {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes eraseMsg {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
 .filter-recipes {
   align-items: center;
   display: flex;
@@ -334,7 +390,7 @@
   margin: 0 auto;
   max-width: 375px;
   padding: 1rem 0;
-  width: 100vw;
+  width: 100%;
 }
 .filter-recipes button {
   border: 1px solid transparent;
@@ -365,7 +421,134 @@
   justify-content: center;
   overflow-y: auto;
   padding-bottom: 70px;
-  width: 100vw;
+  width: 100%;
+}
+
+.details-recipe {
+  padding-bottom: 80px;
+  position: relative;
+  width: 100%;
+}
+.details-recipe a {
+  color: rgb(91, 140, 22);
+  font-size: 1.2rem;
+  font-weight: 500;
+  text-align: center;
+}
+.details-recipe .to-home {
+  left: 1rem;
+  position: absolute;
+}
+.details-recipe .to-home i {
+  font-size: 2.5rem;
+}
+.details-recipe .recipe-image {
+  border-radius: 0.25rem;
+  display: block;
+  margin: 0 auto;
+  max-width: 768px;
+  width: 100%;
+}
+.details-recipe .recipe-title-container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.details-recipe .recipe-title-container h1 {
+  color: rgb(91, 140, 22);
+  margin: 0.6rem 0;
+}
+
+.subtitle {
+  font-size: 18px;
+  margin-left: 10px;
+}
+
+.container-details-ingredients {
+  background-color: #fed;
+}
+
+.recipe-ingredients {
+  background-color: #fed;
+  margin: 20px 0;
+  padding-left: 25px;
+}
+
+.recipe-ingredients li {
+  margin: 0;
+  padding: 0;
+}
+
+.detailsRecipe img {
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.detailsRecipe iframe {
+  border-radius: 3px;
+  display: block;
+  height: 95%;
+  margin: 30px auto;
+}
+
+.recommendations-recipes {
+  box-shadow: 5px 5px 5px gray;
+  display: flex;
+  gap: 3px;
+  overflow-x: scroll;
+  width: 100%;
+}
+
+.recommendations-recipes div {
+  margin-top: 5px;
+  position: relative;
+}
+
+.recommendations-recipes img {
+  border-radius: 3px;
+  width: 326.4px;
+}
+
+.recommendations-recipes span {
+  background-color: rgba(240, 248, 255, 0.7);
+  border-radius: 5px;
+  bottom: 2px;
+  font-family: Fjalla One, sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  left: 4px;
+  padding: 3px;
+  position: absolute;
+  text-align: center;
+  width: 608px;
+}
+
+.instructions {
+  margin: 0 10px;
+  text-align: justify;
+}
+
+.start-recipe-btn {
+  bottom: 0;
+  display: block;
+  height: 40px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0;
+  position: fixed;
+  width: 100%;
+}
+
+.start-recipe-btn button {
+  background-color: #673;
+  border: none;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  height: 100%;
+  width: 100%;
 }
 
 * {
@@ -382,14 +565,14 @@ body {
   width: 100vw;
 }
 body::-webkit-scrollbar {
-  background-color: rgb(255, 119, 17);
+  background-color: rgb(24, 24, 27);
   height: 5px;
   width: 5px;
 }
 body::-webkit-scrollbar-thumb {
   background-color: rgb(91, 140, 22);
   border: 2px solid rgb(91, 140, 22);
-  border-radius: 30%;
+  border-radius: 0.5rem;
 }
 
 a {
@@ -399,4 +582,19 @@ a {
 }
 a:hover {
   opacity: 1;
+}
+
+#root {
+  height: 100%;
+  margin: 0 auto;
+  max-width: 1366px;
+  position: relative;
+  width: 100%;
+}
+
+@media screen and (min-width: 1000px) {
+  body::-webkit-scrollbar {
+    height: 10px;
+    width: 10px;
+  }
 }/*# sourceMappingURL=styles.css.map */

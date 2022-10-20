@@ -1,41 +1,43 @@
-.detailsRecipe {
+.details-recipe {
   padding-bottom: 80px;
   position: relative;
-  width: 100vw;
-}
+  width: 100%;
 
-.detailsRecipe a {
-  color: #350;
-  font-size: 18px;
-  font-weight: 500;
-  text-align: center;
-}
+  a {
+    color: $green-leaf;
+    font-size: 1.2rem;
+    font-weight: 500;
+    text-align: center;
+  }
 
-.to-home {
-  left: 5px;
-  position: absolute;
-}
+  .to-home {
+    left: 1rem;
+    position: absolute;
 
-.to-home i {
-  font-size: 30px;
-}
+    i {
+      font-size: 2.5rem;
+    }
+  }
 
-.recipe-title-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
+  .recipe-image {
+    border-radius: 0.25rem;
+    display: block;
+    margin: 0 auto;
+    max-width: 768px;
+    width: 100%;
+  }
 
-.recipe-title-container div {
-  display: flex;
-  gap: 9px;
-  justify-content: flex-end;
-}
+  .recipe-title-container {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 
-
-.recipe-title-container h1 {
-  margin: 10px 0;
-  text-align: center;
+    h1 {
+      color: $green-leaf;
+      margin: 0.6rem 0;
+    }
+  }
 }
 
 .subtitle {
@@ -43,16 +45,6 @@
   margin-left: 10px;
 }
 
-.share-btn {
-  background: none;
-  border: none;
-}
-
-.favorite-btn {
-  background: none;
-  border: none;
-  padding-right: 10px;
-}
 
 .container-details-ingredients {
   background-color: #fed;
@@ -104,7 +96,7 @@
   background-color: rgba(240, 248, 255, 0.7);
   border-radius: 5px;
   bottom: 2px;
-  font-family: Fjalla One , sans-serif;
+  font-family: Fjalla One, sans-serif;
   font-size: 18px;
   font-weight: 500;
   left: 4px;

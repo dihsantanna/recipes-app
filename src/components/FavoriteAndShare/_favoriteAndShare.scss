@@ -1,0 +1,49 @@
+.favorite-and-share {
+  align-items: center;
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+  width: 100%;
+
+  div {
+    display: flex;
+    gap: 0.7rem;
+    justify-content: flex-end;
+    width: 50%;
+
+    .share-btn {
+      background: none;
+      border: none;
+    }
+
+    .favorite-btn {
+      background: none;
+      border: none;
+      padding-right: 10px;
+    }
+
+    .msg-share {
+      animation: eraseMsg 4.1s linear;
+      border-radius: 0.5rem;
+      color: white;
+      font-size: 16px;
+      right: 0;
+      padding: 5px;
+      position: absolute;
+      text-align: center;
+      top: -35px;
+      width: max-content;
+    }
+  }
+}
+
+@keyframes eraseMsg {
+
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
