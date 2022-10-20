@@ -91,8 +91,13 @@ function DetailsFood({ match: { params: { id } } }) {
           recipe={ food }
           isFood
         />
+        <p
+          className="subtitle"
+          data-testid="recipe-category"
+        >
+          {food.strCategory}
+        </p>
       </section>
-      <p className="subtitle" data-testid="recipe-category">{food.strCategory}</p>
       <div className="container-details-ingredients">
         <ul className="recipe-ingredients">
           {keysIngredients.map((key, index) => (

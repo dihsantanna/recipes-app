@@ -341,21 +341,24 @@
 .favorite-and-share div .share-btn {
   background: none;
   border: none;
+  cursor: pointer;
 }
 .favorite-and-share div .favorite-btn {
   background: none;
   border: none;
+  cursor: pointer;
   padding-right: 10px;
 }
 .favorite-and-share div .msg-share {
-  -webkit-animation: eraseMsg 4.1s linear;
-          animation: eraseMsg 4.1s linear;
+  -webkit-animation: eraseMsg 2.1s linear;
+          animation: eraseMsg 2.1s linear;
   border-radius: 0.5rem;
-  color: white;
+  color: rgb(24, 24, 27);
   font-size: 16px;
-  right: 0;
+  opacity: 0;
   padding: 5px;
   position: absolute;
+  right: 0;
   text-align: center;
   top: -35px;
   width: -webkit-max-content;
@@ -380,6 +383,39 @@
     opacity: 0;
   }
 }
+.start-recipe-btn {
+  bottom: 0;
+  display: block;
+  height: 40px;
+  position: fixed;
+  width: 100%;
+}
+.start-recipe-btn button {
+  border: 1px solid transparent;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  opacity: 0.9;
+  padding: 0.7rem 0.5rem;
+  transition: all 0.3s ease-in-out;
+  background-color: rgb(91, 140, 22);
+  border-radius: 0.3rem 0.3rem 0 0;
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  height: 100%;
+  width: 100%;
+}
+.start-recipe-btn button:hover {
+  border: 1px solid rgb(91, 140, 22);
+  box-shadow: 0 0 0 2px rgb(91, 140, 22);
+  opacity: 1;
+}
+.start-recipe-btn button:disabled {
+  background-color: rgb(107, 132, 72);
+  color: rgb(204, 204, 204);
+  opacity: 1;
+}
+
 .filter-recipes {
   align-items: center;
   display: flex;
@@ -425,6 +461,7 @@
 }
 
 .details-recipe {
+  background-color: rgb(255, 255, 255);
   padding-bottom: 80px;
   position: relative;
   width: 100%;
@@ -436,7 +473,7 @@
   text-align: center;
 }
 .details-recipe .to-home {
-  left: 1rem;
+  left: 0.5rem;
   position: absolute;
 }
 .details-recipe .to-home i {
@@ -457,98 +494,73 @@
 }
 .details-recipe .recipe-title-container h1 {
   color: rgb(91, 140, 22);
-  margin: 0.6rem 0;
 }
-
-.subtitle {
+.details-recipe .recipe-title-container .subtitle {
   font-size: 18px;
-  margin-left: 10px;
+  padding-left: 10px;
+  width: 100%;
 }
-
-.container-details-ingredients {
-  background-color: #fed;
-}
-
-.recipe-ingredients {
-  background-color: #fed;
-  margin: 20px 0;
+.details-recipe .container-details-ingredients .recipe-ingredients {
+  padding: 20px 0;
   padding-left: 25px;
 }
-
-.recipe-ingredients li {
+.details-recipe .container-details-ingredients li {
+  list-style: square;
   margin: 0;
   padding: 0;
 }
-
-.detailsRecipe img {
-  display: block;
-  margin: 0 auto;
+.details-recipe .instructions {
+  padding: 10px;
+  text-align: justify;
   width: 100%;
 }
-
-.detailsRecipe iframe {
-  border-radius: 3px;
+.details-recipe .video {
+  border: rgb(255, 119, 17) 2px solid;
+  border-radius: 0.25rem;
   display: block;
-  height: 95%;
+  height: 315px;
   margin: 30px auto;
+  max-width: 95vw;
+  width: 560px;
 }
-
-.recommendations-recipes {
-  box-shadow: 5px 5px 5px gray;
+.details-recipe .recommendations-recipes {
   display: flex;
   gap: 3px;
   overflow-x: scroll;
   width: 100%;
 }
-
-.recommendations-recipes div {
+.details-recipe .recommendations-recipes div {
   margin-top: 5px;
   position: relative;
 }
-
-.recommendations-recipes img {
+.details-recipe .recommendations-recipes img {
   border-radius: 3px;
   width: 326.4px;
 }
-
-.recommendations-recipes span {
+.details-recipe .recommendations-recipes span {
   background-color: rgba(240, 248, 255, 0.7);
   border-radius: 5px;
-  bottom: 2px;
+  bottom: 8px;
   font-family: Fjalla One, sans-serif;
   font-size: 18px;
   font-weight: 500;
   left: 4px;
-  padding: 3px;
+  padding: 0.25rem 1rem;
   position: absolute;
   text-align: center;
-  width: 608px;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
 }
-
-.instructions {
-  margin: 0 10px;
-  text-align: justify;
+.details-recipe .recommendations-recipes::-webkit-scrollbar {
+  background-color: rgb(204, 204, 204);
+  height: 10px;
+  width: 10px;
 }
-
-.start-recipe-btn {
-  bottom: 0;
-  display: block;
-  height: 40px;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 0;
-  position: fixed;
-  width: 100%;
-}
-
-.start-recipe-btn button {
-  background-color: #673;
-  border: none;
-  color: white;
-  font-size: 16px;
-  font-weight: 600;
-  height: 100%;
-  width: 100%;
+.details-recipe .recommendations-recipes::-webkit-scrollbar-thumb {
+  background-color: rgb(91, 140, 22);
+  border: 2px solid rgb(91, 140, 22);
+  border-radius: 0.5rem;
 }
 
 * {
@@ -561,6 +573,7 @@ body {
   background-color: rgb(39, 39, 42);
   font-family: -apple-system, Segoe UI, Roboto, sans-serif;
   height: 100vh;
+  overflow-x: hidden;
   position: relative;
   width: 100vw;
 }

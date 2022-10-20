@@ -1,6 +1,6 @@
+import { bool, string } from 'prop-types';
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { string, bool } from 'prop-types';
 
 export default function StartRecipeButton({ doneRecipe, inProgress, id, isFood }) {
   return (

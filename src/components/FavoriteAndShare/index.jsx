@@ -31,7 +31,7 @@ export default function FavoriteAndShare({ id, recipe, isFood }) {
     clearTimeout(TIMEOUT_ID);
     setCopyMsg(false);
 
-    const ms = 4000;
+    const ms = 2000;
     const regExp = /\S+[bebidas]?[comidas]\//i;
     const url = window.location.href;
     const newUrl = url.match(regExp)[0] + id;

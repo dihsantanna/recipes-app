@@ -17,20 +17,11 @@ body {
   background-color: $sweet-dark;
   font-family: -apple-system, Segoe UI, Roboto, sans-serif;
   height: 100vh;
+  overflow-x: hidden;
   position: relative;
   width: 100vw;
 
-  &::-webkit-scrollbar {
-    background-color: $dark;
-    height: 5px;
-    width: 5px;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    background-color: $green-leaf;
-    border: 2px solid $green-leaf;
-    border-radius: 0.5rem;
-  }
+  @include scroll-bar;
 
 }
 

@@ -1,4 +1,5 @@
 .details-recipe {
+  background-color: $white;
   padding-bottom: 80px;
   position: relative;
   width: 100%;
@@ -11,7 +12,7 @@
   }
 
   .to-home {
-    left: 1rem;
+    left: 0.5rem;
     position: absolute;
 
     i {
@@ -35,100 +36,75 @@
 
     h1 {
       color: $green-leaf;
-      margin: 0.6rem 0;
+    }
+
+    .subtitle {
+      font-size: 18px;
+      padding-left: 10px;
+      width: 100%;
     }
   }
-}
 
-.subtitle {
-  font-size: 18px;
-  margin-left: 10px;
-}
+  .container-details-ingredients {
 
+    .recipe-ingredients {
+      padding: 20px 0;
+      padding-left: 25px;
+    }
 
-.container-details-ingredients {
-  background-color: #fed;
-}
+    li {
+      list-style: square;
+      margin: 0;
+      padding: 0;
+    }
+  }
 
-.recipe-ingredients {
-  background-color: #fed;
-  margin: 20px 0;
-  padding-left: 25px;
-}
+  .instructions {
+    padding: 10px;
+    text-align: justify;
+    width: 100%;
+  }
 
-.recipe-ingredients li {
-  margin: 0;
-  padding: 0;
-}
+  .video {
+    border: $orange 2px solid;
+    border-radius: 0.25rem;
+    display: block;
+    height: 315px;
+    margin: 30px auto;
+    max-width: 95vw;
+    width: 560px;
+  }
 
-.detailsRecipe img {
-  display: block;
-  margin: 0 auto;
-  width: 100%;
-}
+  .recommendations-recipes {
+    display: flex;
+    gap: 3px;
+    overflow-x: scroll;
+    width: 100%;
 
-.detailsRecipe iframe {
-  border-radius: 3px;
-  display: block;
-  height: 95%;
-  margin: 30px auto;
-}
+    div {
+      margin-top: 5px;
+      position: relative;
+    }
 
-.recommendations-recipes {
-  box-shadow: 5px 5px 5px gray;
-  display: flex;
-  gap: 3px;
-  overflow-x: scroll;
-  width: 100%;
-}
+    img {
+      border-radius: 3px;
+      width: 326.4px;
+    }
 
-.recommendations-recipes div {
-  margin-top: 5px;
-  position: relative;
-}
+    span {
+      background-color: $opaque;
+      border-radius: 5px;
+      bottom: 8px;
+      font-family: Fjalla One, sans-serif;
+      font-size: 18px;
+      font-weight: 500;
+      left: 4px;
+      padding: 0.25rem 1rem;
+      position: absolute;
+      text-align: center;
+      width: max-content;
+    }
 
-.recommendations-recipes img {
-  border-radius: 3px;
-  width: 326.4px;
-}
-
-.recommendations-recipes span {
-  background-color: rgba(240, 248, 255, 0.7);
-  border-radius: 5px;
-  bottom: 2px;
-  font-family: Fjalla One, sans-serif;
-  font-size: 18px;
-  font-weight: 500;
-  left: 4px;
-  padding: 3px;
-  position: absolute;
-  text-align: center;
-  width: 608px;
-}
-
-
-.instructions {
-  margin: 0 10px;
-  text-align: justify;
-}
-
-.start-recipe-btn {
-  bottom: 0;
-  display: block;
-  height: 40px;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 0;
-  position: fixed;
-  width: 100%;
-}
-
-.start-recipe-btn button {
-  background-color: #673;
-  border: none;
-  color: white;
-  font-size: 16px;
-  font-weight: 600;
-  height: 100%;
-  width: 100%;
+    @include scroll-bar($smoke, 10px);
+  }
 }

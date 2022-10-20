@@ -30,3 +30,17 @@
     opacity: 1;
   }
 }
+
+@mixin scroll-bar($bg-color: $dark, $size: 5px) {
+  &::-webkit-scrollbar {
+    background-color: $bg-color;
+    height: $size;
+    width: $size;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $green-leaf;
+    border: 2px solid $green-leaf;
+    border-radius: 0.5rem;
+  }
+}

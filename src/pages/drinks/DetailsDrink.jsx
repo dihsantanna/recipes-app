@@ -89,13 +89,13 @@ function DetailsDrink({ match: { params: { id } } }) {
           id={ id }
           recipe={ drink }
         />
+        <p
+          className="subtitle"
+          data-testid="recipe-category"
+        >
+          {`${drink.strCategory} ${drink.strAlcoholic}`}
+        </p>
       </section>
-      <p
-        className="subtitle"
-        data-testid="recipe-category"
-      >
-        {`${drink.strCategory} ${drink.strAlcoholic}`}
-      </p>
       <div className="container-details-ingredients">
         <ul className="recipe-ingredients">
           {keysIngredients.map((key, index) => (
