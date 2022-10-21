@@ -8,14 +8,23 @@ import handleDoneRecipes from '../../helpers/handleDoneRecipes';
 import { fetchDrinkById } from '../../services/fetchApi';
 
 export default function ProgressDrink({ match: { params: { id } } }) {
-  const initialState = {
-    cocktails: { [id]: [] },
-    meals: { },
+  const initialState = () => {
+    const Storage = JSON.parse(localStorage.getItem('inProgressRecipes'));
+    if (Storage) {
+      return (Storage.cocktails[id])
+        ? { ...Storage }
+        : { ...Storage, cocktails: { ...Storage.cocktails, [id]: [] } };
+    }
+
+    return {
+      cocktails: { [id]: [] },
+      meals: {},
+    };
   };
 
   const [recipe, setRecipe] = useState({});
   const [isLoading, setIsLoading] = useState(true);
-  const [state, setState] = useState(initialState);
+  const [state, setState] = useState({ ...initialState() });
   const [btnState, setBtnState] = useState(true);
   const [redirect, setRedirect] = useState(false);
   const { cocktails } = state;
@@ -27,12 +36,6 @@ export default function ProgressDrink({ match: { params: { id } } }) {
       setIsLoading(false);
     };
     fetchApi();
-    const Storage = JSON.parse(localStorage.getItem('inProgressRecipes'));
-    if (Storage) {
-      return (Storage.cocktails[id])
-        ? setState({ ...Storage })
-        : setState({ ...Storage, cocktails: { ...Storage.cocktails, [id]: [] } });
-    }
   };
 
   const keysList = Object.keys(recipe)
@@ -75,64 +78,67 @@ export default function ProgressDrink({ match: { params: { id } } }) {
     : 'none'}`);
 
   return (
-    <div className="progress-recipe">
-      <Link className="to-home" to="/bebidas">
-        <i className="bi bi-house-fill" />
-      </Link>
-      {isLoading ? <Loading /> : ''}
-      <img
-        className="progress-img"
-        data-testid="recipe-photo"
-        src={ recipe.strDrinkThumb }
-        alt="foto de comida"
-      />
-      <section className="progress-title-container">
-        <h1 data-testid="recipe-title">{recipe.strDrink}</h1>
-        <FavoriteAndShare
-          id={ id }
-          recipe={ recipe }
-        />
-      </section>
-      <span
-        className="progress-category"
-        data-testid="recipe-category"
-      >
-        {recipe.strCategory}
-      </span>
-      <ul className="progress-recipe-ingredients">
-        {keysList.map((item, index) => (
-          <li key={ index } data-testid={ `${index}-ingredient-step` }>
-            <Input
-              style={ { textDecoration: decoration(item) } }
-              type="checkbox"
-              id={ item + index }
-              name={ item }
-              checked={ cocktails[id].includes(item) }
-              textLabel={ item }
-              onChange={ handleCheck }
+    isLoading
+      ? <Loading />
+      : (
+        <div className="progress-recipe">
+          <Link className="to-home" to="/bebidas">
+            <i className="bi bi-house-fill" />
+          </Link>
+          <img
+            className="progress-img"
+            data-testid="recipe-photo"
+            src={ recipe.strDrinkThumb }
+            alt="foto de comida"
+          />
+          <section className="progress-title-container">
+            <h1 data-testid="recipe-title">{recipe.strDrink}</h1>
+            <FavoriteAndShare
+              id={ id }
+              recipe={ recipe }
             />
-          </li>
-        ))}
-      </ul>
-      <p
-        className="progress-instructions"
-        data-testid="instructions"
-      >
-        {recipe.strInstructions}
-      </p>
-      <button
-        className="progress-btn"
-        type="button"
-        data-testid="finish-recipe-btn"
-        disabled={ btnState }
-        onClick={ () => {
-          handleDoneRecipes(recipe);
-          setRedirect(true);
-        } }
-      >
-        Complete
-      </button>
-    </div>
+            <span
+              className="progress-category"
+              data-testid="recipe-category"
+            >
+              {recipe.strCategory}
+            </span>
+          </section>
+          <ul className="progress-recipe-ingredients">
+            {keysList.map((item, index) => (
+              <li key={ index } data-testid={ `${index}-ingredient-step` }>
+                <Input
+                  style={ { textDecoration: decoration(item) } }
+                  type="checkbox"
+                  id={ item + index }
+                  name={ item }
+                  checked={ cocktails[id].includes(item) }
+                  textLabel={ item }
+                  onChange={ handleCheck }
+                />
+              </li>
+            ))}
+          </ul>
+          <p
+            className="progress-instructions"
+            data-testid="instructions"
+          >
+            {recipe.strInstructions}
+          </p>
+          <button
+            className="progress-btn"
+            type="button"
+            data-testid="finish-recipe-btn"
+            disabled={ btnState }
+            onClick={ () => {
+              handleDoneRecipes(recipe);
+              setRedirect(true);
+            } }
+          >
+            Complete
+          </button>
+        </div>
+      )
   );
 }
 

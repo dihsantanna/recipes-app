@@ -8,14 +8,23 @@ import handleDoneRecipes from '../../helpers/handleDoneRecipes';
 import { fetchFoodById } from '../../services/fetchApi';
 
 function ProgressFood({ match: { params: { id } } }) {
-  const initialState = {
-    cocktails: {},
-    meals: { [id]: [] },
+  const initialState = () => {
+    const storage = JSON.parse(localStorage.getItem('inProgressRecipes'));
+    if (storage) {
+      return (storage.meals[id])
+        ? { ...storage }
+        : { ...storage, meals: { ...storage.meals, [id]: [] } };
+    }
+
+    return {
+      cocktails: {},
+      meals: { [id]: [] },
+    };
   };
 
   const [recipe, setRecipe] = useState({});
   const [isLoading, setIsLoading] = useState(true);
-  const [state, setState] = useState(initialState);
+  const [state, setState] = useState({ ...initialState() });
   const [btnState, setBtnState] = useState(true);
   const [redirect, setRedirect] = useState(false);
   const { meals } = state;
@@ -27,12 +36,6 @@ function ProgressFood({ match: { params: { id } } }) {
       setIsLoading(false);
     };
     fetchApi();
-    const storage = JSON.parse(localStorage.getItem('inProgressRecipes'));
-    if (storage) {
-      return (storage.meals[id])
-        ? setState({ ...storage })
-        : setState({ ...storage, meals: { ...storage.meals, [id]: [] } });
-    }
   };
 
   const keysList = Object.keys(recipe)
@@ -55,7 +58,7 @@ function ProgressFood({ match: { params: { id } } }) {
   };
 
   useEffect(initialUpdate, [id]);
-  useEffect(updateDoneRecipes, [keysList.length, id, meals, state]);
+  useEffect(updateDoneRecipes, [id, keysList.length, meals, state]);
 
   const handleCheck = ({ target }) => {
     const { name, checked } = target;
@@ -72,65 +75,68 @@ function ProgressFood({ match: { params: { id } } }) {
   const decoration = (item) => (`${meals[id].includes(item) ? 'line-through' : 'none'}`);
 
   return (
-    <div className="progress-recipe">
-      <Link className="to-home" to="/comidas">
-        <i className="bi bi-house-fill" />
-      </Link>
-      {isLoading ? <Loading /> : ''}
-      <img
-        className="progress-img"
-        data-testid="recipe-photo"
-        src={ recipe.strMealThumb }
-        alt="foto de comida"
-      />
-      <section className="progress-title-container">
-        <h1 data-testid="recipe-title">{recipe.strMeal}</h1>
-        <FavoriteAndShare
-          id={ id }
-          isFood
-          recipe={ recipe }
-        />
-      </section>
-      <span
-        className="progress-category"
-        data-testid="recipe-category"
-      >
-        {recipe.strCategory}
-      </span>
-      <ul className="progress-recipe-ingredients">
-        {keysList.map((item, index) => (
-          <li key={ index } data-testid={ `${index}-ingredient-step` }>
-            <Input
-              style={ { textDecoration: decoration(item) } }
-              type="checkbox"
-              id={ item + index }
-              name={ item }
-              checked={ meals[id].includes(item) }
-              textLabel={ item }
-              onChange={ handleCheck }
+    isLoading
+      ? <Loading />
+      : (
+        <div className="progress-recipe">
+          <Link className="to-home" to="/comidas">
+            <i className="bi bi-house-fill" />
+          </Link>
+          <img
+            className="progress-img"
+            data-testid="recipe-photo"
+            src={ recipe.strMealThumb }
+            alt="foto de comida"
+          />
+          <section className="progress-title-container">
+            <h1 data-testid="recipe-title">{recipe.strMeal}</h1>
+            <FavoriteAndShare
+              id={ id }
+              isFood
+              recipe={ recipe }
             />
-          </li>
-        ))}
-      </ul>
-      <p
-        className="progress-instructions"
-        data-testid="instructions"
-      >
-        {recipe.strInstructions}
-      </p>
-      <button
-        className="progress-btn"
-        type="button"
-        data-testid="finish-recipe-btn"
-        disabled={ btnState }
-        onClick={ () => {
-          handleDoneRecipes(recipe, true);
-          setRedirect(true);
-        } }
-      >
-        Complete
-      </button>
-    </div>
+            <span
+              className="progress-category"
+              data-testid="recipe-category"
+            >
+              {recipe.strCategory}
+            </span>
+          </section>
+          <ul className="progress-recipe-ingredients">
+            {keysList.map((item, index) => (
+              <li key={ index } data-testid={ `${index}-ingredient-step` }>
+                <Input
+                  style={ { textDecoration: decoration(item) } }
+                  type="checkbox"
+                  id={ item + index }
+                  name={ item }
+                  checked={ meals[id].includes(item) }
+                  textLabel={ item }
+                  onChange={ handleCheck }
+                />
+              </li>
+            ))}
+          </ul>
+          <p
+            className="progress-instructions"
+            data-testid="instructions"
+          >
+            {recipe.strInstructions}
+          </p>
+          <button
+            className="progress-btn"
+            type="button"
+            data-testid="finish-recipe-btn"
+            disabled={ btnState }
+            onClick={ () => {
+              handleDoneRecipes(recipe, true);
+              setRedirect(true);
+            } }
+          >
+            Complete
+          </button>
+        </div>
+      )
   );
 }
 
