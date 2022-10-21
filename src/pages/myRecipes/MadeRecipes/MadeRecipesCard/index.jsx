@@ -1,10 +1,9 @@
-import { bool, func, number, shape } from 'prop-types';
+import { arrayOf, bool, number, shape, string } from 'prop-types';
 import React from 'react';
-import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import HandleFavoriteAndShare from './HandleFavoriteAndShare';
+import HandleFavoriteAndShare from '../../HandleFavoriteAndShare';
 
-function FavoriteRecipesCard({ recipe, index, isFood, removeFavorite }) {
+export default function MadeRecipesCard({ recipe, index, isFood, tags, doneDate }) {
   const { image, name, category, area, alcoholicOrNot, id } = recipe;
   return (
     <div className="container-card">
@@ -15,7 +14,7 @@ function FavoriteRecipesCard({ recipe, index, isFood, removeFavorite }) {
           data-testid={ `${index}-horizontal-image` }
         />
       </Link>
-      <div className="container-textAndIcons">
+      <div className="container-text-n-icons">
         {
           isFood ? (
             <div>
@@ -35,30 +34,39 @@ function FavoriteRecipesCard({ recipe, index, isFood, removeFavorite }) {
           >
             {name}
           </h3>
+          <div className="container-tag">
+            {tags.map((tag) => (
+              <p
+                key={ tag }
+                data-testid={ `${index}-${tag}-horizontal-tag` }
+              >
+                {tag}
+              </p>
+            ))}
+          </div>
+          <div className="container-data">
+            <div
+              data-testid={ `${index}-horizontal-done-date` }
+            >
+              {`Feita em: ${doneDate}`}
+            </div>
+          </div>
         </Link>
-        <div className="container-icons">
-          <HandleFavoriteAndShare
-            index={ index }
-            recipe={ recipe }
-            id={ id }
-            isFood={ recipe.type === 'comida' }
-            removeFavorite={ removeFavorite }
-          />
-        </div>
+        <HandleFavoriteAndShare
+          index={ index }
+          recipe={ recipe }
+          id={ id }
+          isFood={ recipe.type === 'comida' }
+        />
       </div>
     </div>
   );
 }
 
-const mapStateToProps = (state) => ({
-  recipes: state.recipesReducer.recipes,
-});
-
-FavoriteRecipesCard.propTypes = {
+MadeRecipesCard.propTypes = {
   recipe: shape().isRequired,
   index: number.isRequired,
   isFood: bool.isRequired,
-  removeFavorite: func.isRequired,
+  tags: arrayOf(string).isRequired,
+  doneDate: string.isRequired,
 };
-
-export default connect(mapStateToProps)(FavoriteRecipesCard);

@@ -31,23 +31,25 @@ function Header({ title, showButton, foodPage }) {
             )
             : ''
         }
-        {
-          showButton
-            ? (
-              <button
-                type="button"
-                className="btn-search"
-                onClick={ () => setShowAndHideSearchBar(!showAndHideSearchBar) }
-              >
-                <img
-                  data-testid="search-top-btn"
-                  src={ searchIcon }
-                  alt="Profile user"
-                />
-              </button>
-            )
-            : ''
-        }
+        <div>
+          {
+            showButton
+              ? (
+                <button
+                  type="button"
+                  className="btn-search"
+                  onClick={ () => setShowAndHideSearchBar(!showAndHideSearchBar) }
+                >
+                  <img
+                    data-testid="search-top-btn"
+                    src={ searchIcon }
+                    alt="Profile user"
+                  />
+                </button>
+              )
+              : ''
+          }
+        </div>
       </header>
       <SearchBar
         foodPage={ foodPage }

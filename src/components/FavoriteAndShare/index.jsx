@@ -1,6 +1,6 @@
-import copy from 'clipboard-copy';
 import { bool, shape, string } from 'prop-types';
 import React, { useEffect, useState } from 'react';
+import handleCopy from '../../helpers/handleCopy';
 import handleFavorites from '../../helpers/handleFavorites';
 import blackHeartIcon from '../../images/blackHeartIcon.svg';
 import shareIcon from '../../images/shareIcon.svg';
@@ -25,21 +25,8 @@ export default function FavoriteAndShare({ id, recipe, isFood }) {
 
   useEffect(setFavorite);
 
-  let TIMEOUT_ID;
-
   const handleShare = () => {
-    clearTimeout(TIMEOUT_ID);
-    setCopyMsg(false);
-
-    const ms = 2000;
-    const regExp = /\S+[bebidas]?[comidas]\//i;
-    const url = window.location.href;
-    const newUrl = url.match(regExp)[0] + id;
-    copy(newUrl);
-    setCopyMsg(true);
-    TIMEOUT_ID = setTimeout(() => {
-      setCopyMsg(false);
-    }, ms);
+    handleCopy(setCopyMsg);
   };
 
   const COPY_MSG = 'Link copiado!';

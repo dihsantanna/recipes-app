@@ -33,6 +33,8 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    margin: 0 auto;
+    max-width: 1142px;
 
     h1 {
       color: $green-leaf;
@@ -50,6 +52,7 @@
     border-radius: 0.5rem;
     color: $white;
     margin: 1.25rem auto;
+    max-width: 1142px;
     padding: 1.25rem 0;
     padding-left: 1rem;
     width: 95%;
@@ -65,6 +68,8 @@
   }
 
   .progress-instructions {
+    margin: 0 auto;
+    max-width: 1142px;
     padding: 10px;
     text-align: justify;
     width: 100%;

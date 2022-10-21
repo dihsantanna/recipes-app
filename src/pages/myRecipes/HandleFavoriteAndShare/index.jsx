@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import { string, shape, bool, number, func } from 'prop-types';
-import copy from 'clipboard-copy';
-import shareIcon from '../../images/shareIcon.svg';
-import whiteHeartIcon from '../../images/whiteHeartIcon.svg';
-import blackHeartIcon from '../../images/blackHeartIcon.svg';
-import handleFavorites from '../../helpers/handleFavorites';
+import { bool, func, number, shape, string } from 'prop-types';
+import React, { useEffect, useState } from 'react';
+import handleCopy from '../../../helpers/handleCopy';
+import handleFavorites from '../../../helpers/handleFavorites';
+import blackHeartIcon from '../../../images/blackHeartIcon.svg';
+import shareIcon from '../../../images/shareIcon.svg';
+import whiteHeartIcon from '../../../images/whiteHeartIcon.svg';
 
 export default function HandleFavoriteAndShare(
   { id,
@@ -28,16 +28,12 @@ export default function HandleFavoriteAndShare(
   useEffect(setFavorite);
 
   const handleShare = () => {
-    const url = window.location.href;
-    const newUrl = url.replace('/receitas-favoritas', `/${type}s/${id}`)
-      .replace('/receitas-feitas', `/${type}s/${id}`);
-    copy(newUrl);
-    setCopyMsg(true);
+    handleCopy(setCopyMsg, { type, id });
   };
 
   const COPY_MSG = 'Link copiado!';
   return (
-    <>
+    <div className="container-icons-my-recipes">
       <button
         type="button"
         className="share-btn"
@@ -67,7 +63,7 @@ export default function HandleFavoriteAndShare(
         />
       </button>
       {(copyMsg) ? <p>{COPY_MSG}</p> : ''}
-    </>
+    </div>
   );
 }
 
