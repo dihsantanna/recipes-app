@@ -25,7 +25,7 @@
     }
 
     .msg-share {
-      animation: eraseMsg 2.1s linear;
+      animation: erase-msg 2.1s linear;
       border-radius: 0.5rem;
       color: $dark;
       font-size: 16px;
@@ -40,7 +40,7 @@
   }
 }
 
-@keyframes eraseMsg {
+@keyframes erase-msg {
 
   0% {
     opacity: 1;

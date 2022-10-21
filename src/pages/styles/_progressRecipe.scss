@@ -69,20 +69,19 @@
     text-align: justify;
     width: 100%;
   }
-}
 
+  .progress-btn {
 
-
-.progress-btn {
-  @include generic-button;
-  background-color: $green-leaf;
-  border-radius: 0.3rem 0.3rem 0 0;
-  bottom: 0;
-  color: white;
-  display: block;
-  font-size: 1rem;
-  font-weight: 600;
-  height: 40px;
-  position: fixed;
-  width: 100%;
+    @include generic-button;
+    background-color: $green-leaf;
+    border-radius: 0.3rem 0.3rem 0 0;
+    bottom: 0;
+    color: white;
+    display: block;
+    font-size: 1rem;
+    font-weight: 600;
+    height: 40px;
+    position: fixed;
+    width: 100%;
+  }
 }

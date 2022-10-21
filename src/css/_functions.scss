@@ -32,6 +32,7 @@
 }
 
 @mixin scroll-bar($bg-color: $dark, $size: 5px) {
+
   &::-webkit-scrollbar {
     background-color: $bg-color;
     height: $size;

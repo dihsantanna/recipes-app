@@ -350,8 +350,8 @@
   padding-right: 10px;
 }
 .favorite-and-share div .msg-share {
-  -webkit-animation: eraseMsg 2.1s linear;
-          animation: eraseMsg 2.1s linear;
+  -webkit-animation: erase-msg 2.1s linear;
+          animation: erase-msg 2.1s linear;
   border-radius: 0.5rem;
   color: rgb(24, 24, 27);
   font-size: 16px;
@@ -366,7 +366,7 @@
   width: max-content;
 }
 
-@-webkit-keyframes eraseMsg {
+@-webkit-keyframes erase-msg {
   0% {
     opacity: 1;
   }
@@ -375,7 +375,7 @@
   }
 }
 
-@keyframes eraseMsg {
+@keyframes erase-msg {
   0% {
     opacity: 1;
   }
@@ -461,7 +461,7 @@
 }
 
 .details-recipe {
-  background-color: rgb(255, 255, 255);
+  background-color: white;
   padding-bottom: 80px;
   position: relative;
   width: 100%;
@@ -564,7 +564,7 @@
 }
 
 .progress-recipe {
-  background-color: rgb(255, 255, 255);
+  background-color: white;
   padding-bottom: 80px;
   position: relative;
   width: 100%;
@@ -606,7 +606,7 @@
 .progress-recipe .progress-recipe-ingredients {
   background-color: rgb(39, 39, 42);
   border-radius: 0.5rem;
-  color: rgb(255, 255, 255);
+  color: white;
   margin: 1.25rem auto;
   padding: 1.25rem 0;
   padding-left: 1rem;
@@ -626,8 +626,7 @@
   text-align: justify;
   width: 100%;
 }
-
-.progress-btn {
+.progress-recipe .progress-btn {
   border: 1px solid transparent;
   border-radius: 0.3rem;
   cursor: pointer;
@@ -645,12 +644,12 @@
   position: fixed;
   width: 100%;
 }
-.progress-btn:hover {
+.progress-recipe .progress-btn:hover {
   border: 1px solid rgb(91, 140, 22);
   box-shadow: 0 0 0 2px rgb(91, 140, 22);
   opacity: 1;
 }
-.progress-btn:disabled {
+.progress-recipe .progress-btn:disabled {
   background-color: rgb(107, 132, 72);
   color: rgb(204, 204, 204);
   opacity: 1;
@@ -689,8 +688,7 @@ a {
 a:hover {
   opacity: 1;
 }
-
-#root {
+a .root {
   height: 100%;
   margin: 0 auto;
   max-width: 1366px;
