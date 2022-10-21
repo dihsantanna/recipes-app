@@ -563,6 +563,99 @@
   border-radius: 0.5rem;
 }
 
+.progress-recipe {
+  background-color: rgb(255, 255, 255);
+  padding-bottom: 80px;
+  position: relative;
+  width: 100%;
+}
+.progress-recipe a {
+  color: rgb(91, 140, 22);
+  font-size: 1.2rem;
+  font-weight: 500;
+  text-align: center;
+}
+.progress-recipe .to-home {
+  left: 0.5rem;
+  position: absolute;
+}
+.progress-recipe .to-home i {
+  font-size: 2.5rem;
+}
+.progress-recipe .progress-img {
+  border-radius: 0.25rem;
+  display: block;
+  margin: 0 auto;
+  max-width: 768px;
+  width: 100%;
+}
+.progress-recipe .progress-title-container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.progress-recipe .progress-title-container h1 {
+  color: rgb(91, 140, 22);
+}
+.progress-recipe .progress-title-container .progress-category {
+  font-size: 18px;
+  padding-left: 10px;
+  width: 100%;
+}
+.progress-recipe .progress-recipe-ingredients {
+  background-color: rgb(39, 39, 42);
+  border-radius: 0.5rem;
+  color: rgb(255, 255, 255);
+  margin: 1.25rem auto;
+  padding: 1.25rem 0;
+  padding-left: 1rem;
+  width: 95%;
+}
+.progress-recipe .progress-recipe-ingredients li {
+  list-style: none;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+}
+.progress-recipe .progress-recipe-ingredients input {
+  margin-right: 0.5rem;
+}
+.progress-recipe .progress-instructions {
+  padding: 10px;
+  text-align: justify;
+  width: 100%;
+}
+
+.progress-btn {
+  border: 1px solid transparent;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  opacity: 0.9;
+  padding: 0.7rem 0.5rem;
+  transition: all 0.3s ease-in-out;
+  background-color: rgb(91, 140, 22);
+  border-radius: 0.3rem 0.3rem 0 0;
+  bottom: 0;
+  color: white;
+  display: block;
+  font-size: 1rem;
+  font-weight: 600;
+  height: 40px;
+  position: fixed;
+  width: 100%;
+}
+.progress-btn:hover {
+  border: 1px solid rgb(91, 140, 22);
+  box-shadow: 0 0 0 2px rgb(91, 140, 22);
+  opacity: 1;
+}
+.progress-btn:disabled {
+  background-color: rgb(107, 132, 72);
+  color: rgb(204, 204, 204);
+  opacity: 1;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
