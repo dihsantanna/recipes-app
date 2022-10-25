@@ -773,6 +773,47 @@
   opacity: 1;
 }
 
+.explore-container {
+  min-height: 100vh;
+  width: 100vw;
+}
+.explore-container .btn-container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  height: calc(100vh - 55px - 45px);
+  justify-content: center;
+  margin: 0 auto;
+  max-width: 375px;
+  width: 100%;
+}
+.explore-container .explore-btn {
+  width: 90%;
+}
+.explore-container .explore-btn button {
+  border: 1px solid transparent;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  opacity: 0.9;
+  padding: 0.7rem 0.5rem;
+  transition: all 0.3s ease-in-out;
+  background-color: rgb(91, 140, 22);
+  color: white;
+  font-size: 1rem;
+  width: 100%;
+}
+.explore-container .explore-btn button:hover {
+  border: 1px solid rgb(91, 140, 22);
+  box-shadow: 0 0 0 2px rgb(91, 140, 22);
+  opacity: 1;
+}
+.explore-container .explore-btn button:disabled {
+  background-color: rgb(107, 132, 72);
+  color: rgb(204, 204, 204);
+  opacity: 1;
+}
+
 .container-favorites .cards-container {
   align-items: center;
   display: flex;
