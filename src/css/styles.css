@@ -717,6 +717,58 @@
   opacity: 1;
 }
 
+.profile-page {
+  height: 100vh;
+  width: 100vw;
+}
+.profile-page .logo-email-container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: calc(60% - 105px);
+  justify-content: space-around;
+  padding-bottom: 50px;
+}
+.profile-page .logo-email-container h1 {
+  color: rgb(204, 204, 204);
+}
+.profile-page .btn-container-profile {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 40%;
+  justify-content: space-around;
+  margin: 0 auto;
+  max-width: 375px;
+  padding-bottom: 51px;
+  width: 100%;
+}
+.profile-page .profile-btn {
+  width: 90%;
+}
+.profile-page .profile-btn button {
+  border: 1px solid transparent;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  opacity: 0.9;
+  padding: 0.7rem 0.5rem;
+  transition: all 0.3s ease-in-out;
+  background-color: rgb(91, 140, 22);
+  color: white;
+  font-size: 1rem;
+  width: 100%;
+}
+.profile-page .profile-btn button:hover {
+  border: 1px solid rgb(91, 140, 22);
+  box-shadow: 0 0 0 2px rgb(91, 140, 22);
+  opacity: 1;
+}
+.profile-page .profile-btn button:disabled {
+  background-color: rgb(107, 132, 72);
+  color: rgb(204, 204, 204);
+  opacity: 1;
+}
+
 .container-favorites .cards-container {
   align-items: center;
   display: flex;

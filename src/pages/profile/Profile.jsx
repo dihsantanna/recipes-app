@@ -10,7 +10,7 @@ export default function Profile() {
     localStorage.clear();
   }
   return (
-    <div className="perfilPage">
+    <div className="profile-page">
       <Header title="Perfil" />
       <section className="logo-email-container">
         <img src={ logo } alt="logo" />
@@ -21,7 +21,7 @@ export default function Profile() {
         </h1>
       </section>
       <section className="btn-container-profile">
-        <Link to="/receitas-feitas" className="proile-btn">
+        <Link to="/receitas-feitas" className="profile-btn">
           <button
             data-testid="profile-done-btn"
             type="button"
@@ -29,7 +29,7 @@ export default function Profile() {
             Receitas Feitas
           </button>
         </Link>
-        <Link to="/receitas-favoritas" className="proile-btn">
+        <Link to="/receitas-favoritas" className="profile-btn">
           <button
             data-testid="profile-favorite-btn"
             type="button"
@@ -37,7 +37,7 @@ export default function Profile() {
             Receitas Favoritas
           </button>
         </Link>
-        <Link to="/" className="proile-btn">
+        <Link to="/" className="profile-btn">
           <button
             data-testid="profile-logout-btn"
             type="button"
