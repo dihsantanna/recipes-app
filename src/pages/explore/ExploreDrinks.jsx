@@ -37,7 +37,7 @@ export default function ExploreDrinks() {
           data-testid="explore-surprise"
           type="button"
           onClick={ getRandomDrink }
-          className="explore-btn"
+          className="explore-surprise"
         >
           Me Surpreenda!
         </button>

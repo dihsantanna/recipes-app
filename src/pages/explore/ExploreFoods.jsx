@@ -44,7 +44,7 @@ export default function ExploreFoods() {
           data-testid="explore-surprise"
           type="button"
           onClick={ getRandomFood }
-          className="explore-btn"
+          className="explore-surprise"
         >
           Me Surpreenda!
         </button>

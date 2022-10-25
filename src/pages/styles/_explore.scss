@@ -12,18 +12,39 @@
     margin: 0 auto;
     max-width: 375px;
     width: 100%;
-  }
 
-  .explore-btn {
-    width: 90%;
+    .explore-btn {
+      width: 90%;
 
-    button {
+      button {
 
-      @include generic-button;
-      background-color: $green-leaf;
+        @include generic-button;
+        background-color: $green-leaf;
+        color: $white;
+        font-size: 1rem;
+        width: 100%;
+      }
+    }
+
+    .explore-surprise {
+
+      background-color: $orange;
+      border: 1px solid transparent;
+      border-radius: 0.3rem;
       color: $white;
+      cursor: pointer;
       font-size: 1rem;
-      width: 100%;
+      opacity: 0.9;
+      padding: 0.7rem 0.5rem;
+      transition: all 0.3s ease-in-out;
+      width: 90%;
+
+      &:hover {
+        border: 1px solid $orange;
+        box-shadow: 0 0 0 2px $orange;
+        opacity: 1;
+      }
     }
   }
+
 }
