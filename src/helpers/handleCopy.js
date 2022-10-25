@@ -2,12 +2,14 @@ import copy from 'clipboard-copy';
 
 let TIMEOUT_ID;
 
-const handleCopy = (setCopyMsg, { type, id } = undefined) => {
+const DATA_DEFAULT = { type: '', id: '' };
+
+const handleCopy = (setCopyMsg, { type, id } = { ...DATA_DEFAULT }) => {
   clearTimeout(TIMEOUT_ID);
   setCopyMsg(false);
 
   const ms = 2000;
-  const regExp = /\S+[bebidas]?[comidas]\//i;
+  const regExp = /\S+([bebidas]|[comidas])\/\d+/i;
   const url = window.location.href;
   const newUrl = type && id
     ? url.replace('/receitas-favoritas', `/${type}s/${id}`)
