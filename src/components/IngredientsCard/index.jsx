@@ -11,7 +11,6 @@ export default function IngredientsCard({ index, name, isFood, onClick }) {
       data-testid={ `${index}-ingredient-card` }
     >
       <button
-        style={ { width: '100%' } }
         onClick={ onClick }
         type="button"
       >

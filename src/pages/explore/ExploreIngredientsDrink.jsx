@@ -37,20 +37,22 @@ function ExploreIngredientsDrink({ changeIngredient }) {
   if (isLoading) return <Loading />;
 
   return (
-    <div className="container-explore-ingredients-drink">
+    <>
       <Header title="Explorar Ingredientes" />
+      <div className="container-explore-ingredients">
 
-      {arrIngredients.slice(0, MAX_INDEX).map(({ strIngredient1 }, index) => (
-        <IngredientsCard
-          key={ strIngredient1 }
-          index={ index }
-          name={ strIngredient1 }
-          isFood={ false }
-          onClick={ () => filterForIngredient(strIngredient1) }
-        />))}
+        {arrIngredients.slice(0, MAX_INDEX).map(({ strIngredient1 }, index) => (
+          <IngredientsCard
+            key={ strIngredient1 }
+            index={ index }
+            name={ strIngredient1 }
+            isFood={ false }
+            onClick={ () => filterForIngredient(strIngredient1) }
+          />))}
 
+      </div>
       <Footer />
-    </div>
+    </>
   );
 }
 

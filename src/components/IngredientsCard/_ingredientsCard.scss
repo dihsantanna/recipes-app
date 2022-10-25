@@ -1,0 +1,26 @@
+.container-ingredients-card {
+  display: flex;
+  flex-direction: column;
+  height: 50vw;
+  max-height: 352px;
+  max-width: 352px;
+  width: 50vw;
+
+  button {
+    background-color: $white;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px $smoke;
+    color: $green-leaf;
+    cursor: pointer;
+    font-family: Poppins, sans-serif;
+    height: 100%;
+    opacity: 0.95;
+    padding: 0.25rem;
+    width: 100%;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}

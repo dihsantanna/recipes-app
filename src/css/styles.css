@@ -415,6 +415,31 @@
   opacity: 1;
 }
 
+.container-ingredients-card {
+  display: flex;
+  flex-direction: column;
+  height: 50vw;
+  max-height: 352px;
+  max-width: 352px;
+  width: 50vw;
+}
+.container-ingredients-card button {
+  background-color: white;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px rgb(204, 204, 204);
+  color: rgb(91, 140, 22);
+  cursor: pointer;
+  font-family: Poppins, sans-serif;
+  height: 100%;
+  opacity: 0.95;
+  padding: 0.25rem;
+  width: 100%;
+}
+.container-ingredients-card button:hover {
+  opacity: 1;
+}
+
 .filter-recipes {
   align-items: center;
   display: flex;
@@ -831,6 +856,23 @@
   opacity: 1;
 }
 
+.container-explore-ingredients {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  margin: 0 auto;
+  max-width: 1160px;
+  padding: 1.5rem 1rem 5rem 1rem;
+  width: 100vw;
+}
+
+@media screen and (min-width: 1024px) {
+  .container-explore-ingredients {
+    justify-content: baseline;
+  }
+}
 .container-favorites .cards-container {
   align-items: center;
   display: flex;
