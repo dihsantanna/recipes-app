@@ -1,16 +1,17 @@
-import React from 'react';
 import { arrayOf, shape } from 'prop-types';
+import React from 'react';
 import { connect } from 'react-redux';
 import RecipeCard from '../../components/RecipeCard';
 
+const ZERO = 0;
 const TWELVE = 12;
 
 function FoodRecipeCards({ recipes }) {
   return (
     <section className="main-recipes">
-      {recipes.reduce((acc, recipe, index) => {
-        if (index < TWELVE) {
-          acc = [...acc, <RecipeCard
+      {recipes.slice(ZERO, TWELVE)
+        .map((recipe, index) => (
+          <RecipeCard
             foodPage
             id={ recipe.idMeal }
             key={ index }
@@ -18,10 +19,8 @@ function FoodRecipeCards({ recipes }) {
             src={ recipe.strMealThumb }
             index={ index }
             alt={ `${recipe.strMeal} image` }
-          />];
-        }
-        return acc;
-      }, [])}
+          />
+        ))}
     </section>
   );
 }

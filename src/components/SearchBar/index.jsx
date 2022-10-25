@@ -7,7 +7,7 @@ import Input from '../Input';
 
 const MSG_ALERT = 'Sua busca deve conter somente 1 (um) caracter';
 
-function SearchBar({ foodPage, searchRecipes, recipes, open }) {
+function SearchBar({ foodPage, searchRecipes, recipes, open, setRecipes }) {
   const [state, setState] = useState({
     query: '',
     consultBy: 'ingredient',
@@ -38,13 +38,21 @@ function SearchBar({ foodPage, searchRecipes, recipes, open }) {
 
   const { query, consultBy } = state;
 
-  const typeRecipe = foodPage ? 'comidas' : 'bebidas';
-  const typeId = foodPage ? 'idMeal' : 'idDrink';
+  const handlerRedirect = () => {
+    const typeRecipe = foodPage ? 'comidas' : 'bebidas';
+    const typeId = foodPage ? 'idMeal' : 'idDrink';
+
+    const PARAMS_NOT_FILTER = { query: '', consultBy: 'name', foodPage };
+
+    setRecipes(PARAMS_NOT_FILTER);
+
+    return <Redirect to={ `/${typeRecipe}/${recipes[0][typeId]}` } />;
+  };
 
   return (
     <nav className={ `nav-search ${open ? 'open-search' : 'close-search'}` }>
       {recipes.length === 1
-        ? <Redirect to={ `/${typeRecipe}/${recipes[0][typeId]}` } />
+        ? handlerRedirect()
         : ''}
       <Input
         id="search-input"
@@ -103,6 +111,7 @@ SearchBar.propTypes = {
   searchRecipes: func.isRequired,
   recipes: arrayOf(shape()).isRequired,
   open: bool.isRequired,
+  setRecipes: func.isRequired,
 };
 
 SearchBar.defaultProps = {
@@ -115,6 +124,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   searchRecipes: (state) => dispatch(fetchSearchRecipes(state)),
+  setRecipes: (params) => dispatch(fetchSearchRecipes(params)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SearchBar);

@@ -1,77 +1,52 @@
-import { func } from 'prop-types';
+import { func, string } from 'prop-types';
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
-import { fetchRecipesForCategory, fetchSearchRecipes } from '../../redux/actions';
+import { fetchRecipesForCategory } from '../../redux/actions';
 import { fetchCategoriesFoodsApi } from '../../services/fetchApi';
 
-const PARAMS_NOT_FILTER = { query: '', consultBy: 'name', foodPage: true };
-
-function FiltersRecipesFoods({ getCategory, recipesNotFilter }) {
+function FiltersRecipesFoods({ getCategory, category }) {
   const [categories, setCategories] = useState([]);
-  const [isMounted, setIsMounted] = useState(false);
-  const [isToggle, setIsToggle] = useState('');
-  const [category, setCategory] = useState('All');
-  const [isFilteredCategory, setFilteredCategory] = useState(false);
 
   const getCategories = () => {
     const fetchCategories = async () => {
       const data = await fetchCategoriesFoodsApi();
+      const zeroNumber = 0;
       const FiveNumber = 5;
-      const firstFivesCategories = data.filter((_item, index) => index < FiveNumber);
+      const firstFivesCategories = data.slice(zeroNumber, FiveNumber);
       setCategories(firstFivesCategories);
-      setIsMounted(true);
     };
-    if (!isMounted) fetchCategories();
+    fetchCategories();
   };
 
-  useEffect(getCategories);
+  useEffect(getCategories, []);
 
-  function handleClick({ name }) {
-    if (!isFilteredCategory || isToggle !== name) {
-      setCategory(name);
-      getCategory(name);
-      setFilteredCategory(true);
-      return setIsToggle(name);
-    }
-    setCategory('All');
-    recipesNotFilter();
-    setFilteredCategory(false);
-  }
-
-  function setCategoryAll() {
-    setCategory('All');
-    recipesNotFilter();
-    setFilteredCategory(false);
+  function handleClick({ target: { name } }) {
+    getCategory(name === 'All' ? '' : name);
   }
 
   return (
     <div className="filter-recipes">
       {categories.map(({ strCategory }) => (
         <button
-          className="filter-recipes-btn"
+          className={
+            `${category === strCategory ? 'selected' : ''}`
+          }
           key={ strCategory }
           type="button"
           data-testid={ `${strCategory}-category-filter` }
           name={ strCategory }
-          onClick={ ({ target }) => handleClick(target) }
-          style={ {
-            backgroundColor: category === strCategory
-              ? 'rgb(91, 140, 22)'
-              : 'rgb(107, 132, 72)',
-          } }
+          onClick={ handleClick }
         >
           {strCategory}
         </button>
       ))}
       <button
-        style={ {
-          backgroundColor: category === 'All'
-            ? 'rgb(91, 140, 22)'
-            : 'rgb(107, 132, 72)',
-        } }
         type="button"
+        className={
+          `${category === '' ? 'selected' : ''}`
+        }
         data-testid="All-category-filter"
-        onClick={ setCategoryAll }
+        onClick={ handleClick }
         name="All"
       >
         All
@@ -82,12 +57,15 @@ function FiltersRecipesFoods({ getCategory, recipesNotFilter }) {
 
 const mapDispatchToProps = (dispatch) => ({
   getCategory: (category) => dispatch(fetchRecipesForCategory(category, true)),
-  recipesNotFilter: () => dispatch(fetchSearchRecipes(PARAMS_NOT_FILTER)),
+});
+
+const mapStateToProps = (state) => ({
+  category: state.recipesReducer.selectCategory,
 });
 
 FiltersRecipesFoods.propTypes = {
   getCategory: func.isRequired,
-  recipesNotFilter: func.isRequired,
+  category: string.isRequired,
 };
 
-export default connect(null, mapDispatchToProps)(FiltersRecipesFoods);
+export default connect(mapStateToProps, mapDispatchToProps)(FiltersRecipesFoods);

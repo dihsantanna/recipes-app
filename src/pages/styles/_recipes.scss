@@ -13,9 +13,14 @@
   button {
 
     @include generic-button;
+    background-color: $green-smoke;
     color: white;
     padding: 0.25rem 0.5rem;
     width: 30%;
+  }
+
+  .selected {
+    background-color: $green-leaf;
   }
 }
 

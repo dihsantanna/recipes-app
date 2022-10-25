@@ -434,6 +434,7 @@
   opacity: 0.9;
   padding: 0.7rem 0.5rem;
   transition: all 0.3s ease-in-out;
+  background-color: rgb(107, 132, 72);
   color: white;
   padding: 0.25rem 0.5rem;
   width: 30%;
@@ -447,6 +448,9 @@
   background-color: rgb(107, 132, 72);
   color: rgb(204, 204, 204);
   opacity: 1;
+}
+.filter-recipes .selected {
+  background-color: rgb(91, 140, 22);
 }
 
 .main-recipes {
