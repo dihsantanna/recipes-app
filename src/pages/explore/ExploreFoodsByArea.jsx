@@ -13,10 +13,12 @@ export default function ExploreFoodsByArea() {
   const [recipes, setRecipes] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
+  const ZERO = 0;
   const TWELVE = 12;
 
   const twelveFirst = (getRecipes) => (
-    getRecipes.filter((_item, index) => (index < TWELVE)));
+    getRecipes.slice(ZERO, TWELVE)
+  );
 
   const getInitialState = async () => {
     const getRecipes = await fetchSearchFoodsApi('name', '');
@@ -61,6 +63,7 @@ export default function ExploreFoodsByArea() {
           <option
             value=""
             data-testid="All-option"
+            disabled={ selectArea === '' }
           >
             All
           </option>
@@ -69,6 +72,7 @@ export default function ExploreFoodsByArea() {
               key={ strArea + index }
               value={ strArea }
               data-testid={ `${strArea}-option` }
+              disabled={ selectArea === strArea }
             >
               {strArea}
             </option>

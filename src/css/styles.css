@@ -873,6 +873,34 @@
     justify-content: baseline;
   }
 }
+.dropdown-container {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  padding: 2rem 0;
+  width: 100vw;
+}
+.dropdown-container .select-explore {
+  background-color: white;
+  border: 0.5px solid rgb(204, 204, 204);
+  border-radius: 5px;
+  outline: none;
+  max-width: 300px;
+  padding: 0.5rem 0.75rem;
+  width: 70%;
+}
+.dropdown-container .select-explore option {
+  color: rgb(24, 24, 27);
+}
+.dropdown-container .select-explore option:hover {
+  background-color: rgb(255, 119, 17);
+  color: rgb(24, 24, 27);
+}
+.dropdown-container .select-explore option:disabled {
+  background-color: rgb(91, 140, 22);
+  color: white;
+}
+
 .container-favorites .cards-container {
   align-items: center;
   display: flex;
