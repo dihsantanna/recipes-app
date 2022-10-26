@@ -428,7 +428,7 @@
   justify-content: center;
   margin: 0 auto;
   max-width: 1160px;
-  padding: 1.5rem 1rem 5rem 1rem;
+  padding: 1.5rem 1rem 5rem;
   width: 100vw;
 }
 
@@ -448,8 +448,8 @@
   background-color: white;
   border: 0.5px solid rgb(204, 204, 204);
   border-radius: 5px;
-  outline: none;
   max-width: 300px;
+  outline: none;
   padding: 0.5rem 0.75rem;
   width: 70%;
 }
@@ -734,9 +734,9 @@
   align-items: center;
   color: rgb(204, 204, 204);
   display: flex;
+  flex-direction: column;
   font-size: 2rem;
   font-weight: 700;
-  flex-direction: column;
   height: 100vh;
   justify-content: center;
   width: 100vw;

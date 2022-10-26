@@ -6,11 +6,12 @@
   justify-content: center;
   margin: 0 auto;
   max-width: 1160px;
-  padding: 1.5rem 1rem 5rem 1rem;
+  padding: 1.5rem 1rem 5rem;
   width: 100vw;
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width : 1024px) {
+
   .container-explore-ingredients {
     justify-content: flex-start;
   }

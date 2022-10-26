@@ -56,9 +56,10 @@
   }
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width : 1024px) {
 
   .container-favorites {
+
     .cards-container {
       justify-content: flex-start;
     }

@@ -68,6 +68,8 @@
     "eslint-plugin-import": "2.26.0",
     "eslint-plugin-jsx-a11y": "6.6.1",
     "eslint-plugin-react-hooks": "4.6.0",
+    "eslint-plugin-react-redux": "^4.0.0",
+    "eslint-plugin-sonarjs": "^0.16.0",
     "fs-extra": "10.1.0",
     "mocha": "10.1.0",
     "mochawesome": "7.1.3",

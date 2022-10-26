@@ -36,7 +36,8 @@
   width: 100%;
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width : 1024px) {
+
   .main-recipes {
     justify-content: flex-start;
   }
