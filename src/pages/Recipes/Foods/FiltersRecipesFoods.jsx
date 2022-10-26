@@ -1,8 +1,8 @@
 import { func, string } from 'prop-types';
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
-import { fetchRecipesForCategory } from '../../redux/actions';
-import { fetchCategoriesFoodsApi } from '../../services/fetchApi';
+import { fetchRecipesForCategory } from '../../../redux/actions';
+import { fetchCategoriesFoodsApi } from '../../../services/fetchApi';
 
 function FiltersRecipesFoods({ getCategory, category }) {
   const [categories, setCategories] = useState([]);

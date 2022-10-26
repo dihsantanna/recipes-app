@@ -4,7 +4,6 @@ import Header from '../../components/Header';
 import Loading from '../../components/Loading';
 import RecipeCard from '../../components/RecipeCard';
 import { fetchAreas, fetchByArea, fetchSearchFoodsApi } from '../../services/fetchApi';
-import '../foods/FoodRecipeCards';
 
 export default function ExploreFoodsByArea() {
   const [isMounted, setIsMounted] = useState(false);

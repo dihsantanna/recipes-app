@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import Input from '../components/Input';
-import logo from '../images/logo.svg';
+import Input from '../../components/Input';
+import logo from '../../images/logo.svg';
 
 export default function Login() {
   const [state, setState] = useState({ email: '', password: '' });

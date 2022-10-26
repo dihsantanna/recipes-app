@@ -1,24 +1,23 @@
 import { arrayOf, shape } from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
-import RecipeCard from '../../components/RecipeCard';
+import RecipeCard from '../../../components/RecipeCard';
 
 const ZERO = 0;
 const TWELVE = 12;
 
-function FoodRecipeCards({ recipes }) {
+function DrinkRecipeCards({ recipes }) {
   return (
     <section className="main-recipes">
       {recipes.slice(ZERO, TWELVE)
         .map((recipe, index) => (
           <RecipeCard
-            foodPage
-            id={ recipe.idMeal }
+            id={ recipe.idDrink }
             key={ index }
-            name={ recipe.strMeal }
-            src={ recipe.strMealThumb }
+            name={ recipe.strDrink }
+            src={ recipe.strDrinkThumb }
             index={ index }
-            alt={ `${recipe.strMeal} image` }
+            alt={ `${recipe.strDrink} image` }
           />
         ))}
     </section>
@@ -29,8 +28,8 @@ const mapStateToProps = (state) => ({
   recipes: state.recipesReducer.recipes,
 });
 
-FoodRecipeCards.propTypes = {
+DrinkRecipeCards.propTypes = {
   recipes: arrayOf(shape()).isRequired,
 };
 
-export default connect(mapStateToProps)(FoodRecipeCards);
+export default connect(mapStateToProps)(DrinkRecipeCards);

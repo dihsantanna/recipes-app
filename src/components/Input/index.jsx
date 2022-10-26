@@ -1,5 +1,5 @@
+import { bool, func, number, shape, string } from 'prop-types';
 import React from 'react';
-import { string, bool, func, number, shape } from 'prop-types';
 
 export default function Input({
   name,

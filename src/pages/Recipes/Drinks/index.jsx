@@ -1,11 +1,11 @@
 import { bool, func, string } from 'prop-types';
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
-import Footer from '../../components/Footer';
-import Header from '../../components/Header';
-import Loading from '../../components/Loading';
-import { fetchSearchRecipes, setIngredient } from '../../redux/actions';
-import setCategory from '../../redux/actions/setCategory';
+import Footer from '../../../components/Footer';
+import Header from '../../../components/Header';
+import Loading from '../../../components/Loading';
+import { fetchSearchRecipes, setIngredient } from '../../../redux/actions';
+import setCategory from '../../../redux/actions/setCategory';
 import DrinkRecipeCards from './DrinkRecipeCards';
 import FiltersRecipesDrinks from './FiltersRecipesDrinks';
 

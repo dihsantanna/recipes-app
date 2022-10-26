@@ -1,3 +1,17 @@
-@import './styles/global';
+@import './Login/login';
 
-@import './myRecipes/global';
+@import './Recipes/recipes';
+
+@import './Recipes/detailsRecipe';
+
+@import './Recipes/progressRecipe';
+
+@import './Explore/explore';
+
+@import './Explore/exploreByIngredients';
+
+@import './Explore/exploreFoodsByArea';
+
+@import './Profile/profile';
+
+@import './MyRecipes/myRecipes';

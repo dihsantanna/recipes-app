@@ -1,3 +1,9 @@
+@import './FavoritesRecipes/FavoriteRecipesCard/favoriteRecipesCard';
+
+@import './MadeRecipes/MadeRecipesCard/madeRecipesCard';
+
+@import './HandleFavoriteAndShare/handleFavoriteAndShare';
+
 .container-favorites,
 .container-made {
   align-items: center;

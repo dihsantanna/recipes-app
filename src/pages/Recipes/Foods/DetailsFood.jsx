@@ -1,15 +1,16 @@
 import { shape, string } from 'prop-types';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import FavoriteAndShare from '../../components/FavoriteAndShare';
-import Loading from '../../components/Loading';
-import RecommendationCard from '../../components/RecommendationCard';
-import StartRecipeButton from '../../components/StartRecipeButton';
-import { fetchDrinkById, fetchSearchFoodsApi } from '../../services/fetchApi';
+import FavoriteAndShare from '../../../components/FavoriteAndShare';
+import Loading from '../../../components/Loading';
+import RecommendationCard from '../../../components/RecommendationCard';
+import StartRecipeButton from '../../../components/StartRecipeButton';
+import { fetchFoodById, fetchSearchDrinksApi } from '../../../services/fetchApi';
+import Video from './Video';
 
-function DetailsDrink({ match: { params: { id } } }) {
+function DetailsFood({ match: { params: { id } } }) {
   const [state, setState] = useState({
-    drink: [],
+    food: [],
     isMount: false,
     isLoading: true,
     recommendations: [],
@@ -17,7 +18,7 @@ function DetailsDrink({ match: { params: { id } } }) {
     inProgressRecipe: false,
   });
 
-  const { drink,
+  const { food,
     isMount,
     isLoading,
     recommendations,
@@ -28,72 +29,73 @@ function DetailsDrink({ match: { params: { id } } }) {
     const isDone = () => {
       const doneRecipes = JSON.parse(localStorage.getItem('doneRecipes'));
       return doneRecipes
-        ? doneRecipes.some((recipe) => (recipe.id === id && recipe.type === 'bebida'))
+        ? doneRecipes.some((recipe) => (recipe.id === id && recipe.type === 'comida'))
         : false;
     };
 
     const inProgress = () => {
       const inProgressRecipes = JSON.parse(localStorage.getItem('inProgressRecipes'));
-      return inProgressRecipes ? !!inProgressRecipes.cocktails[id] : false;
+      return inProgressRecipes ? !!inProgressRecipes.meals[id] : false;
     };
 
-    const getFoods = async () => {
-      const foodData = await fetchSearchFoodsApi('name', '');
+    const getDrinks = async () => {
+      const drinksData = await fetchSearchDrinksApi('name', '');
       const MAX_INDEX = 6;
-      return foodData.filter((_food, index) => index < MAX_INDEX);
+      return drinksData.filter((_drink, index) => index < MAX_INDEX);
     };
 
-    const getDrink = async () => {
-      const drinkData = await fetchDrinkById(id);
-      const foods = await getFoods();
+    const getFood = async () => {
+      const foodData = await fetchFoodById(id);
+      const drinks = await getDrinks();
       setState({
         ...state,
-        drink: drinkData,
+        food: foodData,
         isMount: true,
         isLoading: false,
-        recommendations: foods,
+        recommendations: drinks,
         doneRecipe: isDone(),
         inProgressRecipe: inProgress(),
       });
     };
 
-    if (!isMount) getDrink();
+    if (!isMount) getFood();
   };
 
   useEffect(initialUpdate);
 
   if (isLoading) return <Loading />;
 
-  const keysDrinks = Object.keys(drink);
+  const keysFoods = Object.keys(food);
 
-  const keysIngredients = keysDrinks.filter((key) => (
-    key.includes('strIngredient') && !!drink[key]));
+  const keysIngredients = keysFoods.filter((key) => (
+    key.includes('strIngredient') && !!food[key]));
 
-  const keysMeasures = keysDrinks.filter((key) => (
-    key.includes('strMeasure') && !!drink[key]));
+  const keysMeasures = keysFoods.filter((key) => (
+    key.includes('strMeasure') && !!food[key]));
 
   return (
     <div className="details-recipe">
-      <Link className="to-home" to="/bebidas">
+      <Link className="to-home" to="/comidas">
         <i className="bi bi-house-fill" />
       </Link>
       <img
-        src={ drink.strDrinkThumb }
+        src={ food.strMealThumb }
         alt="recipe"
         data-testid="recipe-photo"
         className="recipe-image"
       />
       <section className="recipe-title-container">
-        <h1 data-testid="recipe-title">{drink.strDrink}</h1>
+        <h1 data-testid="recipe-title">{food.strMeal}</h1>
         <FavoriteAndShare
           id={ id }
-          recipe={ drink }
+          recipe={ food }
+          isFood
         />
         <p
           className="subtitle"
           data-testid="recipe-category"
         >
-          {`${drink.strCategory} ${drink.strAlcoholic}`}
+          {food.strCategory}
         </p>
       </section>
       <div className="container-details-ingredients">
@@ -103,25 +105,30 @@ function DetailsDrink({ match: { params: { id } } }) {
               key={ key }
               data-testid={ `${index}-ingredient-name-and-measure` }
             >
-              {`${drink[key]} - ${drink[keysMeasures[index]] || ''}`}
+              {`${food[key]} - ${food[keysMeasures[index]]}`}
             </li>
           ))}
         </ul>
       </div>
-      <p className="instructions" data-testid="instructions">{drink.strInstructions}</p>
+      <p className="instructions" data-testid="instructions">{food.strInstructions}</p>
+      <Video
+        src={ food.strYoutube }
+      />
       <section className="recommendations-recipes">
-        {recommendations.map((food, index) => (
+        {recommendations.map((drink, index) => (
           <RecommendationCard
-            id={ food.idMeal }
-            key={ food.strMeal + index }
-            name={ food.strMeal }
-            src={ food.strMealThumb }
+            foodPage
+            id={ drink.idDrink }
+            key={ drink.strDrink + index }
+            name={ drink.strDrink }
+            src={ drink.strDrinkThumb }
             index={ index }
-            alt={ `${food.strMeal} image` }
+            alt={ `${drink.strDrink} image` }
           />
         ))}
       </section>
       <StartRecipeButton
+        isFood
         doneRecipe={ doneRecipe }
         inProgress={ inProgressRecipe }
         id={ id }
@@ -130,9 +137,9 @@ function DetailsDrink({ match: { params: { id } } }) {
   );
 }
 
-DetailsDrink.propTypes = {
+DetailsFood.propTypes = {
   match: shape({
     params: shape({ id: string }) }).isRequired,
 };
 
-export default DetailsDrink;
+export default DetailsFood;

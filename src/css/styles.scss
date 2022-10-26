@@ -1,10 +1,10 @@
 @import './colors';
 
-@import '../pages/login';
-
-@import '../components/global';
+@import './functions';
 
 @import '../pages/global';
+
+@import '../components/global';
 
 * {
   box-sizing: border-box;

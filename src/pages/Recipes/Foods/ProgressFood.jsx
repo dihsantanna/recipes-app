@@ -1,24 +1,24 @@
 import { shape, string } from 'prop-types';
 import React, { useEffect, useState } from 'react';
 import { Link, Redirect } from 'react-router-dom';
-import FavoriteAndShare from '../../components/FavoriteAndShare';
-import Input from '../../components/Input';
-import Loading from '../../components/Loading';
-import handleDoneRecipes from '../../helpers/handleDoneRecipes';
-import { fetchDrinkById } from '../../services/fetchApi';
+import FavoriteAndShare from '../../../components/FavoriteAndShare';
+import Input from '../../../components/Input';
+import Loading from '../../../components/Loading';
+import handleDoneRecipes from '../../../helpers/handleDoneRecipes';
+import { fetchFoodById } from '../../../services/fetchApi';
 
-export default function ProgressDrink({ match: { params: { id } } }) {
+function ProgressFood({ match: { params: { id } } }) {
   const initialState = () => {
-    const Storage = JSON.parse(localStorage.getItem('inProgressRecipes'));
-    if (Storage) {
-      return (Storage.cocktails[id])
-        ? { ...Storage }
-        : { ...Storage, cocktails: { ...Storage.cocktails, [id]: [] } };
+    const storage = JSON.parse(localStorage.getItem('inProgressRecipes'));
+    if (storage) {
+      return (storage.meals[id])
+        ? { ...storage }
+        : { ...storage, meals: { ...storage.meals, [id]: [] } };
     }
 
     return {
-      cocktails: { [id]: [] },
-      meals: {},
+      cocktails: {},
+      meals: { [id]: [] },
     };
   };
 
@@ -27,12 +27,12 @@ export default function ProgressDrink({ match: { params: { id } } }) {
   const [state, setState] = useState({ ...initialState() });
   const [btnState, setBtnState] = useState(true);
   const [redirect, setRedirect] = useState(false);
-  const { cocktails } = state;
+  const { meals } = state;
 
   const initialUpdate = () => {
     const fetchApi = async () => {
-      const drinks = await fetchDrinkById(id);
-      setRecipe(drinks);
+      const foods = await fetchFoodById(id);
+      setRecipe(foods);
       setIsLoading(false);
     };
     fetchApi();
@@ -46,11 +46,10 @@ export default function ProgressDrink({ match: { params: { id } } }) {
   const updateDoneRecipes = () => {
     const finishedRecipe = () => {
       const recipeLength = keysList.length;
-      const itemsListLength = cocktails[id].length;
+      const itemsListLength = meals[id].length;
       const result = recipeLength !== itemsListLength;
       setBtnState(result);
     };
-
     const saveInLocalStorage = () => {
       localStorage.setItem('inProgressRecipes', JSON.stringify(state));
     };
@@ -59,42 +58,41 @@ export default function ProgressDrink({ match: { params: { id } } }) {
   };
 
   useEffect(initialUpdate, [id]);
-  useEffect(updateDoneRecipes, [keysList.length, cocktails, id, recipe, state]);
+  useEffect(updateDoneRecipes, [id, keysList.length, meals, state]);
 
   const handleCheck = ({ target }) => {
     const { name, checked } = target;
     const ingredients = checked
-      ? [...cocktails[id], name]
-      : cocktails[id].filter((item) => item !== name);
-    setState({ ...state, cocktails: { ...state.cocktails, [id]: ingredients } });
+      ? [...meals[id], name]
+      : meals[id].filter((item) => item !== name);
+    setState({ ...state, meals: { ...state.meals, [id]: ingredients } });
   };
 
   if (redirect) {
     return <Redirect to="/receitas-feitas" />;
   }
 
-  const decoration = (item) => (`${cocktails[id].includes(item)
-    ? 'line-through'
-    : 'none'}`);
+  const decoration = (item) => (`${meals[id].includes(item) ? 'line-through' : 'none'}`);
 
   return (
     isLoading
       ? <Loading />
       : (
         <div className="progress-recipe">
-          <Link className="to-home" to="/bebidas">
+          <Link className="to-home" to="/comidas">
             <i className="bi bi-house-fill" />
           </Link>
           <img
             className="progress-img"
             data-testid="recipe-photo"
-            src={ recipe.strDrinkThumb }
+            src={ recipe.strMealThumb }
             alt="foto de comida"
           />
           <section className="progress-title-container">
-            <h1 data-testid="recipe-title">{recipe.strDrink}</h1>
+            <h1 data-testid="recipe-title">{recipe.strMeal}</h1>
             <FavoriteAndShare
               id={ id }
+              isFood
               recipe={ recipe }
             />
             <span
@@ -112,7 +110,7 @@ export default function ProgressDrink({ match: { params: { id } } }) {
                   type="checkbox"
                   id={ item + index }
                   name={ item }
-                  checked={ cocktails[id].includes(item) }
+                  checked={ meals[id].includes(item) }
                   textLabel={ item }
                   onChange={ handleCheck }
                 />
@@ -131,7 +129,7 @@ export default function ProgressDrink({ match: { params: { id } } }) {
             data-testid="finish-recipe-btn"
             disabled={ btnState }
             onClick={ () => {
-              handleDoneRecipes(recipe);
+              handleDoneRecipes(recipe, true);
               setRedirect(true);
             } }
           >
@@ -142,8 +140,9 @@ export default function ProgressDrink({ match: { params: { id } } }) {
   );
 }
 
-ProgressDrink.propTypes = {
+ProgressFood.propTypes = {
   match: shape({
-    url: string,
     params: shape({ id: string }) }).isRequired,
 };
+
+export default ProgressFood;
