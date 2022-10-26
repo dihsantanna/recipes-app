@@ -38,14 +38,20 @@ export default function ProgressDrink({ match: { params: { id } } }) {
     fetchApi();
   };
 
-  const keysList = Object.keys(recipe)
-    .filter((ingredient) => ingredient.includes('strIngredient'))
+  const keysList = Object.keys(recipe);
+
+  const keysIngredients = keysList
+    .filter((key) => key.includes('strIngredient') && !!recipe[key]);
+
+  const keysDrink = keysIngredients
     .filter((ele) => recipe[ele])
     .map((item) => recipe[item]);
 
+  const keysMeasures = keysIngredients.map((key) => key.match(/\d+/gi)[0]);
+
   const updateDoneRecipes = () => {
     const finishedRecipe = () => {
-      const recipeLength = keysList.length;
+      const recipeLength = keysDrink.length;
       const itemsListLength = cocktails[id].length;
       const result = recipeLength !== itemsListLength;
       setBtnState(result);
@@ -55,11 +61,11 @@ export default function ProgressDrink({ match: { params: { id } } }) {
       localStorage.setItem('inProgressRecipes', JSON.stringify(state));
     };
     saveInLocalStorage();
-    if (keysList.length) finishedRecipe();
+    if (keysDrink.length) finishedRecipe();
   };
 
   useEffect(initialUpdate, [id]);
-  useEffect(updateDoneRecipes, [keysList.length, cocktails, id, recipe, state]);
+  useEffect(updateDoneRecipes, [keysDrink.length, cocktails, id, recipe, state]);
 
   const handleCheck = ({ target }) => {
     const { name, checked } = target;
@@ -76,6 +82,10 @@ export default function ProgressDrink({ match: { params: { id } } }) {
   const decoration = (item) => (`${cocktails[id].includes(item)
     ? 'line-through'
     : 'none'}`);
+
+  const createIngredientText = (item, index) => (
+    `${item} - ${recipe[`strMeasure${keysMeasures[index]}`]}`
+  );
 
   return (
     isLoading
@@ -105,15 +115,18 @@ export default function ProgressDrink({ match: { params: { id } } }) {
             </span>
           </section>
           <ul className="progress-recipe-ingredients">
-            {keysList.map((item, index) => (
+            {keysDrink.map((item, index) => (
               <li key={ index } data-testid={ `${index}-ingredient-step` }>
                 <Input
-                  style={ { textDecoration: decoration(item) } }
+                  style={ {
+                    textDecoration: decoration(createIngredientText(item, index)),
+                  } }
                   type="checkbox"
                   id={ item + index }
-                  name={ item }
-                  checked={ cocktails[id].includes(item) }
-                  textLabel={ item }
+                  name={ createIngredientText(item, index) }
+                  checked={ cocktails[id]
+                    .includes(createIngredientText(item, index)) }
+                  textLabel={ createIngredientText(item, index) }
                   onChange={ handleCheck }
                 />
               </li>

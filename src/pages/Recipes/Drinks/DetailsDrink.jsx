@@ -69,8 +69,7 @@ function DetailsDrink({ match: { params: { id } } }) {
   const keysIngredients = keysDrinks.filter((key) => (
     key.includes('strIngredient') && !!drink[key]));
 
-  const keysMeasures = keysDrinks.filter((key) => (
-    key.includes('strMeasure') && !!drink[key]));
+  const keysMeasures = keysIngredients.map((key) => key.match(/\d+/gi)[0]);
 
   return (
     <div className="details-recipe">
@@ -103,7 +102,7 @@ function DetailsDrink({ match: { params: { id } } }) {
               key={ key }
               data-testid={ `${index}-ingredient-name-and-measure` }
             >
-              {`${drink[key]} - ${drink[keysMeasures[index]] || ''}`}
+              {`${drink[key]} - ${drink[`strMeasure${keysMeasures[index]}`] || ''}`}
             </li>
           ))}
         </ul>

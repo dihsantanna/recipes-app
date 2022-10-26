@@ -38,14 +38,20 @@ function ProgressFood({ match: { params: { id } } }) {
     fetchApi();
   };
 
-  const keysList = Object.keys(recipe)
-    .filter((ingredient) => ingredient.includes('strIngredient'))
+  const keysList = Object.keys(recipe);
+
+  const keysIngredients = keysList
+    .filter((key) => key.includes('strIngredient') && !!recipe[key]);
+
+  const keysFood = keysIngredients
     .filter((ele) => recipe[ele])
     .map((item) => recipe[item]);
 
+  const keysMeasures = keysIngredients.map((key) => key.match(/\d+/gi)[0]);
+
   const updateDoneRecipes = () => {
     const finishedRecipe = () => {
-      const recipeLength = keysList.length;
+      const recipeLength = keysFood.length;
       const itemsListLength = meals[id].length;
       const result = recipeLength !== itemsListLength;
       setBtnState(result);
@@ -54,11 +60,11 @@ function ProgressFood({ match: { params: { id } } }) {
       localStorage.setItem('inProgressRecipes', JSON.stringify(state));
     };
     saveInLocalStorage();
-    if (keysList.length) finishedRecipe();
+    if (keysFood.length) finishedRecipe();
   };
 
   useEffect(initialUpdate, [id]);
-  useEffect(updateDoneRecipes, [id, keysList.length, meals, state]);
+  useEffect(updateDoneRecipes, [id, keysFood.length, meals, state]);
 
   const handleCheck = ({ target }) => {
     const { name, checked } = target;
@@ -73,6 +79,10 @@ function ProgressFood({ match: { params: { id } } }) {
   }
 
   const decoration = (item) => (`${meals[id].includes(item) ? 'line-through' : 'none'}`);
+
+  const createIngredientText = (item, index) => (
+    `${item} - ${recipe[`strMeasure${keysMeasures[index]}`]}`
+  );
 
   return (
     isLoading
@@ -103,15 +113,18 @@ function ProgressFood({ match: { params: { id } } }) {
             </span>
           </section>
           <ul className="progress-recipe-ingredients">
-            {keysList.map((item, index) => (
+            {keysFood.map((item, index) => (
               <li key={ index } data-testid={ `${index}-ingredient-step` }>
                 <Input
-                  style={ { textDecoration: decoration(item) } }
+                  style={ {
+                    textDecoration: decoration(createIngredientText(item, index)),
+                  } }
                   type="checkbox"
                   id={ item + index }
-                  name={ item }
-                  checked={ meals[id].includes(item) }
-                  textLabel={ item }
+                  name={ createIngredientText(item, index) }
+                  checked={ meals[id]
+                    .includes(createIngredientText(item, index)) }
+                  textLabel={ createIngredientText(item, index) }
                   onChange={ handleCheck }
                 />
               </li>
