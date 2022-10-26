@@ -730,6 +730,18 @@
   opacity: 1;
 }
 
+.not-found {
+  align-items: center;
+  color: rgb(204, 204, 204);
+  display: flex;
+  font-size: 2rem;
+  font-weight: 700;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+  width: 100vw;
+}
+
 .loading-container {
   align-items: center;
   background: rgba(39, 39, 42, 0.6);
