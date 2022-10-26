@@ -4,6 +4,7 @@
     align-items: center;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     max-width: 1142px;
     padding: 0 1rem;
     width: 100%;
@@ -51,6 +52,15 @@
           width: 100%;
         }
       }
+    }
+  }
+}
+
+@media screen and (min-width: 1024px) {
+
+  .container-favorites {
+    .cards-container {
+      justify-content: baseline;
     }
   }
 }
