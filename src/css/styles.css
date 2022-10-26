@@ -490,6 +490,11 @@
   width: 100%;
 }
 
+@media screen and (min-width: 1024px) {
+  .main-recipes {
+    justify-content: flex-start;
+  }
+}
 .details-recipe {
   background-color: white;
   padding-bottom: 80px;
@@ -870,7 +875,7 @@
 
 @media screen and (min-width: 1024px) {
   .container-explore-ingredients {
-    justify-content: baseline;
+    justify-content: flex-start;
   }
 }
 .dropdown-container {
@@ -889,12 +894,9 @@
   padding: 0.5rem 0.75rem;
   width: 70%;
 }
-.dropdown-container .select-explore option {
-  color: rgb(24, 24, 27);
-}
-.dropdown-container .select-explore option:hover {
-  background-color: rgb(255, 119, 17);
-  color: rgb(24, 24, 27);
+.dropdown-container .select-explore option:enabled {
+  background-color: rgb(39, 39, 42);
+  color: rgb(204, 204, 204);
 }
 .dropdown-container .select-explore option:disabled {
   background-color: rgb(91, 140, 22);
@@ -954,7 +956,7 @@
 
 @media screen and (min-width: 1024px) {
   .container-favorites .cards-container {
-    justify-content: baseline;
+    justify-content: flex-start;
   }
 }
 .container-made .cards-container {
@@ -1036,7 +1038,7 @@
 
 @media screen and (min-width: 1024px) {
   .container-made .cards-container {
-    justify-content: baseline;
+    justify-content: flex-start;
   }
 }
 .container-icons-my-recipes {

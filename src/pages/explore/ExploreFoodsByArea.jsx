@@ -64,6 +64,7 @@ export default function ExploreFoodsByArea() {
             value=""
             data-testid="All-option"
             disabled={ selectArea === '' }
+            selected
           >
             All
           </option>

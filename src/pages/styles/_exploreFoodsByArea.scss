@@ -15,11 +15,10 @@
     width: 70%;
 
     option {
-      color: $dark;
 
-      &:hover {
-        background-color: $orange;
-        color: $dark;
+      &:enabled {
+        background-color: $sweet-dark;
+        color: $smoke;
       }
 
       &:disabled {
