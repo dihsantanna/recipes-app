@@ -1,4 +1,5 @@
-on: [pull_request, push]
+on: [push]
+
 jobs:
   eslint:
     runs-on: ubuntu-20.04
@@ -9,11 +10,11 @@ jobs:
         - name: Node version Install
           uses: actions/setup-node@v1
           with:
-            node-version: 12
+            node-version: 14
 
 
         - name: Dependency install
           run: npm install
 
         - name: Lint execution
-          run: npx eslint .
+          run: npm run lint
