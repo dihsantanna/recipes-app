@@ -1,22 +1,22 @@
 import React from 'react';
-import { Switch, Route, BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import Explore from './pages/Explore';
+import ExploreDrinks from './pages/Explore/ExploreDrinks';
+import ExploreFoods from './pages/Explore/ExploreFoods';
+import ExploreFoodsByArea from './pages/Explore/ExploreFoodsByArea';
+import ExploreIngredientsDrink from './pages/Explore/ExploreIngredientsDrink';
+import ExploreIngredientsFood from './pages/Explore/ExploreIngredientsFood';
 import Login from './pages/Login';
-import Foods from './pages/foods/Foods';
-import Drinks from './pages/drinks/Drinks';
-import DetailsFood from './pages/foods/DetailsFood';
-import DetailsDrink from './pages/drinks/DetailsDrink';
-import ProgressFood from './pages/foods/ProgressFood';
-import ProgressDrink from './pages/drinks/ProgressDrink';
-import Explore from './pages/explore/Explore';
-import ExploreFoods from './pages/explore/ExploreFoods';
-import ExploreDrinks from './pages/explore/ExploreDrinks';
-import ExploreIngredientsFood from './pages/explore/ExploreIngredientsFood';
-import ExploreIngredientsDrink from './pages/explore/ExploreIngredientsDrink';
-import ExploreFoodsByArea from './pages/explore/ExploreFoodsByArea';
-import Profile from './pages/profile/Profile';
-import MadeRecipes from './pages/recipes/MadeRecipes';
-import FavoritesRecipes from './pages/recipes/FavoritesRecipes';
-import NotFound from './pages/notFound/NotFound';
+import FavoritesRecipes from './pages/MyRecipes/FavoritesRecipes';
+import MadeRecipes from './pages/MyRecipes/MadeRecipes';
+import NotFound from './pages/NotFound';
+import Profile from './pages/Profile';
+import Drinks from './pages/Recipes/Drinks';
+import DetailsDrink from './pages/Recipes/Drinks/DetailsDrink';
+import ProgressDrink from './pages/Recipes/Drinks/ProgressDrink';
+import Foods from './pages/Recipes/Foods';
+import DetailsFood from './pages/Recipes/Foods/DetailsFood';
+import ProgressFood from './pages/Recipes/Foods/ProgressFood';
 
 export default function Routes() {
   return (
@@ -106,7 +106,6 @@ export default function Routes() {
 
         <Route
           path="/receitas-favoritas"
-          // component={ FavoritesRecipes }
           render={ (props) => <FavoritesRecipes { ...props } /> }
         />
 

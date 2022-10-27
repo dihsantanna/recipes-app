@@ -1,11 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import { fetchAreas, fetchByArea, fetchSearchFoodsApi } from '../../services/fetchApi';
-import Header from '../../components/Header';
-import RecipeCard from '../../components/RecipeCard';
+import React, { useEffect, useState } from 'react';
 import Footer from '../../components/Footer';
-import '../css/exploreFoodsByArea.css';
-import '../foods/FoodRecipeCards';
+import Header from '../../components/Header';
 import Loading from '../../components/Loading';
+import RecipeCard from '../../components/RecipeCard';
+import { fetchAreas, fetchByArea, fetchSearchFoodsApi } from '../../services/fetchApi';
 
 export default function ExploreFoodsByArea() {
   const [isMounted, setIsMounted] = useState(false);
@@ -14,10 +12,12 @@ export default function ExploreFoodsByArea() {
   const [recipes, setRecipes] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
+  const ZERO = 0;
   const TWELVE = 12;
 
   const twelveFirst = (getRecipes) => (
-    getRecipes.filter((_item, index) => (index < TWELVE)));
+    getRecipes.slice(ZERO, TWELVE)
+  );
 
   const getInitialState = async () => {
     const getRecipes = await fetchSearchFoodsApi('name', '');
@@ -62,22 +62,25 @@ export default function ExploreFoodsByArea() {
           <option
             value=""
             data-testid="All-option"
+            disabled={ selectArea === '' }
+            selected
           >
             All
           </option>
-          {areas.map(({ strArea }, index) => (
+          { areas.map(({ strArea }, index) => (
             <option
               key={ strArea + index }
               value={ strArea }
               data-testid={ `${strArea}-option` }
+              disabled={ selectArea === strArea }
             >
-              {strArea}
+              { strArea }
             </option>
-          ))}
+          )) }
         </select>
       </section>
       <section className="main-recipes">
-        {isLoading
+        { isLoading
           ? <Loading />
           : recipes.map((recipe, index) => (
             <RecipeCard
@@ -89,7 +92,7 @@ export default function ExploreFoodsByArea() {
               alt={ `${recipe.strMeal} image` }
               id={ recipe.idMeal }
             />
-          ))}
+          )) }
       </section>
       <Footer />
     </div>

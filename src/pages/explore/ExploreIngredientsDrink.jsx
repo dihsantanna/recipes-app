@@ -1,14 +1,13 @@
-import React, { useState, useEffect } from 'react';
-import { connect } from 'react-redux';
 import { func } from 'prop-types';
+import React, { useEffect, useState } from 'react';
+import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import Footer from '../../components/Footer';
 import Header from '../../components/Header';
 import IngredientsCard from '../../components/IngredientsCard';
 import Loading from '../../components/Loading';
-import { fetchIngredientsDrinksApi } from '../../services/fetchApi';
 import { setIngredient } from '../../redux/actions';
-import '../css/exploreIngredientsDrink.css';
+import { fetchIngredientsDrinksApi } from '../../services/fetchApi';
 
 function ExploreIngredientsDrink({ changeIngredient }) {
   const [isMount, setIsMount] = useState(false);
@@ -38,20 +37,22 @@ function ExploreIngredientsDrink({ changeIngredient }) {
   if (isLoading) return <Loading />;
 
   return (
-    <div className="container-explore-ingredients-drink">
+    <>
       <Header title="Explorar Ingredientes" />
+      <div className="container-explore-ingredients">
 
-      {arrIngredients.slice(0, MAX_INDEX).map(({ strIngredient1 }, index) => (
-        <IngredientsCard
-          key={ strIngredient1 }
-          index={ index }
-          name={ strIngredient1 }
-          isFood={ false }
-          onClick={ () => filterForIngredient(strIngredient1) }
-        />))}
+        { arrIngredients.slice(0, MAX_INDEX).map(({ strIngredient1 }, index) => (
+          <IngredientsCard
+            key={ strIngredient1 }
+            index={ index }
+            name={ strIngredient1 }
+            isFood={ false }
+            onClick={ () => filterForIngredient(strIngredient1) }
+          />)) }
 
+      </div>
       <Footer />
-    </div>
+    </>
   );
 }
 

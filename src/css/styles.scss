@@ -1,0 +1,55 @@
+@import './colors';
+
+@import './functions';
+
+@import '../pages/global';
+
+@import '../components/global';
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+
+body {
+  background-color: $sweet-dark;
+  font-family: -apple-system, Segoe UI, Roboto, sans-serif;
+  height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+  width: 100vw;
+
+  @include scroll-bar;
+}
+
+a {
+  cursor: pointer;
+  opacity: 0.9;
+  text-decoration: none;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  .root {
+    height: 100%;
+    margin: 0 auto;
+    max-width: 1366px;
+    position: relative;
+    width: 100%;
+  }
+}
+
+
+@media screen and (min-width : 1000px) {
+
+  body {
+
+    &::-webkit-scrollbar {
+      height: 10px;
+      width: 10px;
+    }
+  }
+}
