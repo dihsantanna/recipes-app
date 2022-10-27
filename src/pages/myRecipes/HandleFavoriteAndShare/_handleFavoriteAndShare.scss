@@ -1,0 +1,30 @@
+.container-icons-my-recipes {
+  bottom: 0.75rem;
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+  padding: 0 0.5rem;
+  position: absolute;
+  width: 100%;
+
+  button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
+
+  p {
+    animation: erase-msg 2.1s linear;
+    background-color: $opaque;
+    border-radius: 0.5rem;
+    color: $dark;
+    font-size: 16px;
+    opacity: 0;
+    padding: 5px;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    top: -35px;
+    width: max-content;
+  }
+}

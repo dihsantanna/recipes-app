@@ -1,0 +1,118 @@
+.details-recipe {
+  background-color: $white;
+  padding-bottom: 80px;
+  position: relative;
+  width: 100%;
+
+  a {
+    color: $green-leaf;
+    font-size: 1.2rem;
+    font-weight: 500;
+    text-align: center;
+  }
+
+  .to-home {
+    left: 0.5rem;
+    position: absolute;
+
+    i {
+      font-size: 2.5rem;
+    }
+  }
+
+  .recipe-image {
+    border-radius: 0.25rem;
+    display: block;
+    margin: 0 auto;
+    max-width: 768px;
+    width: 100%;
+  }
+
+  .recipe-title-container {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 0 auto;
+    max-width: 1142px;
+
+    h1 {
+      color: $green-leaf;
+    }
+
+    .subtitle {
+      font-size: 18px;
+      padding-left: 10px;
+      width: 100%;
+    }
+  }
+
+  .container-details-ingredients {
+    margin: 0 auto;
+    max-width: 1142px;
+
+    .recipe-ingredients {
+      padding: 20px 0;
+      padding-left: 25px;
+    }
+
+    li {
+      list-style: square;
+      margin: 0;
+      padding: 0;
+    }
+  }
+
+  .instructions {
+    margin: 0 auto;
+    max-width: 1142px;
+    padding: 10px;
+    text-align: justify;
+    width: 100%;
+  }
+
+  .video {
+    border: $orange 2px solid;
+    border-radius: 0.25rem;
+    display: block;
+    height: 315px;
+    margin: 30px auto;
+    max-width: 95vw;
+    width: 560px;
+  }
+
+  .recommendations-recipes {
+    display: flex;
+    gap: 3px;
+    margin: 0 auto;
+    max-width: 1142px;
+    overflow-x: scroll;
+    width: 100%;
+
+    div {
+      margin-top: 5px;
+      position: relative;
+    }
+
+    img {
+      border-radius: 3px;
+      width: 326.4px;
+    }
+
+    span {
+      background-color: $opaque;
+      border-radius: 5px;
+      bottom: 8px;
+      font-family: Fjalla One, sans-serif;
+      font-size: 18px;
+      font-weight: 500;
+      left: 4px;
+      padding: 0.25rem 1rem;
+      position: absolute;
+      text-align: center;
+      width: max-content;
+    }
+
+    @include scroll-bar($smoke, 10px);
+  }
+}

@@ -1,0 +1,40 @@
+.loading-container {
+  align-items: center;
+  background: $sweet-dark-opaque;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 0;
+
+  .logo-container {
+    animation: degrade infinite both 1s;
+    max-width: 375px;
+    overflow: hidden;
+    transition: 0.5s;
+    width: 60vw;
+
+    .load-logo {
+      width: 100%;
+    }
+  }
+}
+
+@keyframes degrade {
+
+  0% {
+    opacity: 0.2;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0.2;
+  }
+}

@@ -1,14 +1,13 @@
-import React, { useState, useEffect } from 'react';
-import { connect } from 'react-redux';
 import { func } from 'prop-types';
+import React, { useEffect, useState } from 'react';
+import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import Footer from '../../components/Footer';
 import Header from '../../components/Header';
 import IngredientsCard from '../../components/IngredientsCard';
-import { fetchIngredientsFoodsApi } from '../../services/fetchApi';
-import { setIngredient } from '../../redux/actions';
-import '../css/exploreIngredientsFood.css';
 import Loading from '../../components/Loading';
+import { setIngredient } from '../../redux/actions';
+import { fetchIngredientsFoodsApi } from '../../services/fetchApi';
 
 function ExploreIngredientsFood({ changeIngredient }) {
   const [isMount, setIsMount] = useState(false);
@@ -41,14 +40,14 @@ function ExploreIngredientsFood({ changeIngredient }) {
     <>
       <Header title="Explorar Ingredientes" />
       <div className="container-explore-ingredients">
-        {arrIngredients.slice(0, MAX_INDEX).map(({ strIngredient }, index) => (
+        { arrIngredients.slice(0, MAX_INDEX).map(({ strIngredient }, index) => (
           <IngredientsCard
             key={ strIngredient }
             index={ index }
             name={ strIngredient }
             isFood
             onClick={ () => filterForIngredient(strIngredient) }
-          />))}
+          />)) }
       </div>
       <Footer />
     </>

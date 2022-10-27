@@ -1,16 +1,16 @@
-on: [pull_request, push]
+on: [push]
+
 jobs:
   eslint:
     runs-on: ubuntu-20.04
     steps:
         - name: Repository git verification
-          uses: actions/checkout@v2
+          uses: actions/checkout@v3
 
         - name: Node version Install
-          uses: actions/setup-node@v1
+          uses: actions/setup-node@v3
           with:
-            node-version: 12
-
+            node-version: 16
 
         - name: Dependency install
           run: npm install

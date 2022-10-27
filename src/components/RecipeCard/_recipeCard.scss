@@ -1,0 +1,60 @@
+.link-card-foods {
+  background-color: $opaque;
+  border: 2px solid $orange;
+  border-radius: 0.25rem;
+  height: 95vw;
+  max-height: 375px;
+  max-width: 375px;
+  width: 92vw;
+
+  a {
+    border-radius: 0.25rem;
+    height: 100%;
+    width: 100%;
+
+    div {
+      align-items: center;
+      border-radius: 0.25rem;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      justify-content: space-around;
+      overflow: hidden;
+      position: relative;
+      width: 100%;
+    }
+
+    img {
+      border-radius: 0.25rem;
+      width: 110%;
+    }
+
+    span {
+      background-color: $opaque;
+      border-radius: 0.25rem;
+      bottom: 2px;
+      color: $green-leaf;
+      font-family: Fjalla One, sans-serif;
+      font-size: 1.2rem;
+      font-weight: 500;
+      padding: 3px;
+      position: absolute;
+      text-align: center;
+      width: 100%;
+    }
+  }
+}
+
+@media screen and (min-width : 1080px) {
+
+  .link-card-foods {
+
+    img {
+      transition: all 0.6s ease-in-out;
+
+      &:hover {
+        transform: scale(1.5);
+      }
+    }
+  }
+}

@@ -1,0 +1,44 @@
+.filter-recipes {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  height: 100px;
+  justify-content: space-evenly;
+  margin: 0 auto;
+  max-width: 375px;
+  padding: 1rem 0;
+  width: 100%;
+
+  button {
+
+    @include generic-button;
+    background-color: $green-smoke;
+    color: white;
+    padding: 0.25rem 0.5rem;
+    width: 30%;
+  }
+
+  .selected {
+    background-color: $green-leaf;
+  }
+}
+
+.main-recipes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin: 0 auto;
+  max-width: 1160px;
+  overflow-y: auto;
+  padding-bottom: 70px;
+  width: 100%;
+}
+
+@media screen and (min-width : 1024px) {
+
+  .main-recipes {
+    justify-content: flex-start;
+  }
+}
