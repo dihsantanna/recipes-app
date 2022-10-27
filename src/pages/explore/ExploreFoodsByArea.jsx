@@ -67,20 +67,20 @@ export default function ExploreFoodsByArea() {
           >
             All
           </option>
-          {areas.map(({ strArea }, index) => (
+          { areas.map(({ strArea }, index) => (
             <option
               key={ strArea + index }
               value={ strArea }
               data-testid={ `${strArea}-option` }
               disabled={ selectArea === strArea }
             >
-              {strArea}
+              { strArea }
             </option>
-          ))}
+          )) }
         </select>
       </section>
       <section className="main-recipes">
-        {isLoading
+        { isLoading
           ? <Loading />
           : recipes.map((recipe, index) => (
             <RecipeCard
@@ -92,7 +92,7 @@ export default function ExploreFoodsByArea() {
               alt={ `${recipe.strMeal} image` }
               id={ recipe.idMeal }
             />
-          ))}
+          )) }
       </section>
       <Footer />
     </div>

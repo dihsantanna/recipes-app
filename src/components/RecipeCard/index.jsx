@@ -16,7 +16,7 @@ export default function RecipeCard({ src, name, index, alt, id, foodPage }) {
             src={ src }
             alt={ alt }
           />
-          <span data-testid={ `${index}-card-name` }>{name}</span>
+          <span data-testid={ `${index}-card-name` }>{ name }</span>
         </div>
       </Link>
     </div>

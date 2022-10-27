@@ -20,35 +20,35 @@ export default function MadeRecipesCard({ recipe, index, isFood, tags, doneDate 
             <div>
               <p data-testid={ `${index}-horizontal-top-text` }>
                 { area }
-                {' - '}
-                {category}
+                { ' - ' }
+                { category }
               </p>
             </div>
           ) : (
-            <p data-testid={ `${index}-horizontal-top-text` }>{alcoholicOrNot}</p>
+            <p data-testid={ `${index}-horizontal-top-text` }>{ alcoholicOrNot }</p>
           )
         }
         <Link to={ `/${isFood ? 'comidas' : 'bebidas'}/${id}` }>
           <h3
             data-testid={ `${index}-horizontal-name` }
           >
-            {name}
+            { name }
           </h3>
           <div className="container-tag">
-            {tags.map((tag) => (
+            { tags.map((tag) => (
               <p
                 key={ tag }
                 data-testid={ `${index}-${tag}-horizontal-tag` }
               >
-                {tag}
+                { tag }
               </p>
-            ))}
+            )) }
           </div>
           <div className="container-data">
             <div
               data-testid={ `${index}-horizontal-done-date` }
             >
-              {`Feita em: ${doneDate}`}
+              { `Feita em: ${doneDate}` }
             </div>
           </div>
         </Link>

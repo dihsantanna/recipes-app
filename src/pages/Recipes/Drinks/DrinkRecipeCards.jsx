@@ -9,7 +9,7 @@ const TWELVE = 12;
 function DrinkRecipeCards({ recipes }) {
   return (
     <section className="main-recipes">
-      {recipes.slice(ZERO, TWELVE)
+      { recipes.slice(ZERO, TWELVE)
         .map((recipe, index) => (
           <RecipeCard
             id={ recipe.idDrink }
@@ -19,7 +19,7 @@ function DrinkRecipeCards({ recipes }) {
             index={ index }
             alt={ `${recipe.strDrink} image` }
           />
-        ))}
+        )) }
     </section>
   );
 }

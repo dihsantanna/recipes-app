@@ -31,14 +31,14 @@ function Drinks({
   return (
     <>
       <Header title="Bebidas" showButton />
-      {isFetching
+      { isFetching
         ? <Loading />
         : (
           <>
             <FiltersRecipesDrinks />
             <DrinkRecipeCards />
           </>
-        )}
+        ) }
       <Footer />
     </>
   );

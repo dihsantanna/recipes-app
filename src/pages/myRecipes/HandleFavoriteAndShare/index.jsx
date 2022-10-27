@@ -62,7 +62,7 @@ export default function HandleFavoriteAndShare(
           alt="favorite icon"
         />
       </button>
-      {(copyMsg) ? <p>{COPY_MSG}</p> : ''}
+      { (copyMsg) ? <p>{ COPY_MSG }</p> : '' }
     </div>
   );
 }

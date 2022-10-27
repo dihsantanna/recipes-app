@@ -51,9 +51,9 @@ function SearchBar({ foodPage, searchRecipes, recipes, open, setRecipes }) {
 
   return (
     <nav className={ `nav-search ${open ? 'open-search' : 'close-search'}` }>
-      {recipes.length === 1
+      { recipes.length === 1
         ? handlerRedirect()
-        : ''}
+        : '' }
       <Input
         id="search-input"
         type="text"

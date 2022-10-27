@@ -99,7 +99,7 @@ function ProgressFood({ match: { params: { id } } }) {
             alt="foto de comida"
           />
           <section className="progress-title-container">
-            <h1 data-testid="recipe-title">{recipe.strMeal}</h1>
+            <h1 data-testid="recipe-title">{ recipe.strMeal }</h1>
             <FavoriteAndShare
               id={ id }
               isFood
@@ -109,11 +109,11 @@ function ProgressFood({ match: { params: { id } } }) {
               className="progress-category"
               data-testid="recipe-category"
             >
-              {recipe.strCategory}
+              { recipe.strCategory }
             </span>
           </section>
           <ul className="progress-recipe-ingredients">
-            {keysFood.map((item, index) => (
+            { keysFood.map((item, index) => (
               <li key={ index } data-testid={ `${index}-ingredient-step` }>
                 <Input
                   style={ {
@@ -128,13 +128,13 @@ function ProgressFood({ match: { params: { id } } }) {
                   onChange={ handleCheck }
                 />
               </li>
-            ))}
+            )) }
           </ul>
           <p
             className="progress-instructions"
             data-testid="instructions"
           >
-            {recipe.strInstructions}
+            { recipe.strInstructions }
           </p>
           <button
             className="progress-btn"

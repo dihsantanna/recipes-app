@@ -26,7 +26,7 @@ function FiltersRecipesFoods({ getCategory, category }) {
 
   return (
     <div className="filter-recipes">
-      {categories.map(({ strCategory }) => (
+      { categories.map(({ strCategory }) => (
         <button
           className={
             `${category === strCategory ? 'selected' : ''}`
@@ -37,9 +37,9 @@ function FiltersRecipesFoods({ getCategory, category }) {
           name={ strCategory }
           onClick={ handleClick }
         >
-          {strCategory}
+          { strCategory }
         </button>
-      ))}
+      )) }
       <button
         type="button"
         className={

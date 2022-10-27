@@ -14,7 +14,7 @@ export default function StartRecipeButton({ doneRecipe, inProgress, id, isFood }
             type="button"
             data-testid="start-recipe-btn"
           >
-            {inProgress ? 'Continuar Receita' : 'Iniciar Receita'}
+            { inProgress ? 'Continuar Receita' : 'Iniciar Receita' }
           </button>
         </Link>
       )

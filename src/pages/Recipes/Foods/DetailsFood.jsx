@@ -84,7 +84,7 @@ function DetailsFood({ match: { params: { id } } }) {
         className="recipe-image"
       />
       <section className="recipe-title-container">
-        <h1 data-testid="recipe-title">{food.strMeal}</h1>
+        <h1 data-testid="recipe-title">{ food.strMeal }</h1>
         <FavoriteAndShare
           id={ id }
           recipe={ food }
@@ -94,27 +94,27 @@ function DetailsFood({ match: { params: { id } } }) {
           className="subtitle"
           data-testid="recipe-category"
         >
-          {food.strCategory}
+          { food.strCategory }
         </p>
       </section>
       <div className="container-details-ingredients">
         <ul className="recipe-ingredients">
-          {keysIngredients.map((key, index) => (
+          { keysIngredients.map((key, index) => (
             <li
               key={ key }
               data-testid={ `${index}-ingredient-name-and-measure` }
             >
-              {`${food[key]} - ${food[`strMeasure${keysMeasures[index]}`]}`}
+              { `${food[key]} - ${food[`strMeasure${keysMeasures[index]}`]}` }
             </li>
-          ))}
+          )) }
         </ul>
       </div>
-      <p className="instructions" data-testid="instructions">{food.strInstructions}</p>
+      <p className="instructions" data-testid="instructions">{ food.strInstructions }</p>
       <Video
         src={ food.strYoutube }
       />
       <section className="recommendations-recipes">
-        {recommendations.map((drink, index) => (
+        { recommendations.map((drink, index) => (
           <RecommendationCard
             foodPage
             id={ drink.idDrink }
@@ -124,7 +124,7 @@ function DetailsFood({ match: { params: { id } } }) {
             index={ index }
             alt={ `${drink.strDrink} image` }
           />
-        ))}
+        )) }
       </section>
       <StartRecipeButton
         isFood

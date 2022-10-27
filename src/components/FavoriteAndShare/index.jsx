@@ -56,7 +56,7 @@ export default function FavoriteAndShare({ id, recipe, isFood }) {
             alt="favorite icon"
           />
         </button>
-        {(copyMsg) ? <span className="msg-share">{COPY_MSG}</span> : ''}
+        { (copyMsg) ? <span className="msg-share">{ COPY_MSG }</span> : '' }
       </div>
     </div>
   );

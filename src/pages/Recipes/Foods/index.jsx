@@ -31,14 +31,14 @@ function Foods({
   return (
     <>
       <Header title="Comidas" showButton foodPage />
-      {isFetching
+      { isFetching
         ? <Loading />
         : (
           <>
             <FiltersRecipesFoods />
             <FoodRecipeCards />
           </>
-        )}
+        ) }
       <Footer />
     </>
   );

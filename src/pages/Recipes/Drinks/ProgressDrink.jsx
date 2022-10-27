@@ -102,7 +102,7 @@ export default function ProgressDrink({ match: { params: { id } } }) {
             alt="foto de comida"
           />
           <section className="progress-title-container">
-            <h1 data-testid="recipe-title">{recipe.strDrink}</h1>
+            <h1 data-testid="recipe-title">{ recipe.strDrink }</h1>
             <FavoriteAndShare
               id={ id }
               recipe={ recipe }
@@ -111,11 +111,11 @@ export default function ProgressDrink({ match: { params: { id } } }) {
               className="progress-category"
               data-testid="recipe-category"
             >
-              {recipe.strCategory}
+              { recipe.strCategory }
             </span>
           </section>
           <ul className="progress-recipe-ingredients">
-            {keysDrink.map((item, index) => (
+            { keysDrink.map((item, index) => (
               <li key={ index } data-testid={ `${index}-ingredient-step` }>
                 <Input
                   style={ {
@@ -130,13 +130,13 @@ export default function ProgressDrink({ match: { params: { id } } }) {
                   onChange={ handleCheck }
                 />
               </li>
-            ))}
+            )) }
           </ul>
           <p
             className="progress-instructions"
             data-testid="instructions"
           >
-            {recipe.strInstructions}
+            { recipe.strInstructions }
           </p>
           <button
             className="progress-btn"

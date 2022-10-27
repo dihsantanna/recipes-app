@@ -25,7 +25,7 @@ function Header({ title, showButton, foodPage }) {
                 className="header-title"
                 data-testid="page-title"
               >
-                {title}
+                { title }
                 <img src={ folha } alt="logo folha" />
               </h2>
             )

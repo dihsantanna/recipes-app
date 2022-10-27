@@ -21,19 +21,19 @@ function FavoriteRecipesCard({ recipe, index, isFood, removeFavorite }) {
             <div>
               <p data-testid={ `${index}-horizontal-top-text` }>
                 { area }
-                {' - '}
-                {category}
+                { ' - ' }
+                { category }
               </p>
             </div>
           ) : (
-            <p data-testid={ `${index}-horizontal-top-text` }>{alcoholicOrNot}</p>
+            <p data-testid={ `${index}-horizontal-top-text` }>{ alcoholicOrNot }</p>
           )
         }
         <Link to={ `/${isFood ? 'comidas' : 'bebidas'}/${id}` }>
           <h3
             data-testid={ `${index}-horizontal-name` }
           >
-            {name}
+            { name }
           </h3>
         </Link>
         <HandleFavoriteAndShare

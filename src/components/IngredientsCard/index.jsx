@@ -19,7 +19,7 @@ export default function IngredientsCard({ index, name, isFood, onClick }) {
           src={ `${END_POINT}${name}-Small.png` }
           alt={ name }
         />
-        <h3 data-testid={ `${index}-card-name` }>{name}</h3>
+        <h3 data-testid={ `${index}-card-name` }>{ name }</h3>
       </button>
     </div>
   );

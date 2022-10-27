@@ -77,7 +77,7 @@ export default function MadeRecipes() {
           </button>
         </div>
         <div className="cards-container">
-          {filteredRecipes.map((recipe, index) => (
+          { filteredRecipes.map((recipe, index) => (
             <MadeRecipesCard
               key={ index }
               index={ index }
@@ -86,7 +86,7 @@ export default function MadeRecipes() {
               tags={ recipe.tags }
               doneDate={ recipe.doneDate }
             />
-          ))}
+          )) }
         </div>
       </div>
     </>

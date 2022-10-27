@@ -12,9 +12,8 @@ jobs:
           with:
             node-version: 16
 
-
         - name: Dependency install
           run: npm install
 
         - name: Lint execution
-          run: npm run lint
+          run: npx eslint .

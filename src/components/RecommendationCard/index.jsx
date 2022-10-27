@@ -1,5 +1,5 @@
+import { bool, number, string } from 'prop-types';
 import React from 'react';
-import { number, string, bool } from 'prop-types';
 import { Link } from 'react-router-dom';
 
 export default function RecommendationCard({ src, name, index, alt, id, foodPage }) {
@@ -12,7 +12,7 @@ export default function RecommendationCard({ src, name, index, alt, id, foodPage
           src={ src }
           alt={ alt }
         />
-        <span data-testid={ `${index}-recomendation-title` }>{name}</span>
+        <span data-testid={ `${index}-recomendation-title` }>{ name }</span>
       </div>
     </Link>
   );

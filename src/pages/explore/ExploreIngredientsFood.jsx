@@ -40,14 +40,14 @@ function ExploreIngredientsFood({ changeIngredient }) {
     <>
       <Header title="Explorar Ingredientes" />
       <div className="container-explore-ingredients">
-        {arrIngredients.slice(0, MAX_INDEX).map(({ strIngredient }, index) => (
+        { arrIngredients.slice(0, MAX_INDEX).map(({ strIngredient }, index) => (
           <IngredientsCard
             key={ strIngredient }
             index={ index }
             name={ strIngredient }
             isFood
             onClick={ () => filterForIngredient(strIngredient) }
-          />))}
+          />)) }
       </div>
       <Footer />
     </>

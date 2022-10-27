@@ -81,7 +81,7 @@ export default function FavoritesRecipes() {
           </button>
         </div>
         <div className="cards-container">
-          {filteredRecipes && filteredRecipes.map((recipe, index) => (
+          { filteredRecipes && filteredRecipes.map((recipe, index) => (
             <FavoriteRecipesCard
               key={ index }
               index={ index }
@@ -89,7 +89,7 @@ export default function FavoritesRecipes() {
               isFood={ recipe.type === 'comida' }
               removeFavorite={ removeFavorite }
             />
-          ))}
+          )) }
         </div>
       </div>
     </>
