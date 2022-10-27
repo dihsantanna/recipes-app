@@ -1,4 +1,4 @@
-# Boas vindas ao repositório do projeto de Receitas!
+# Boas vindas ao repositório do projeto de Receitas! Receitate 2.0 :smile:
 
 # Habilidades
 
@@ -12,6 +12,7 @@ Nesse projeto, foi utilizado:
   - _React Hook useEffect_
   - Metodologias ágeis _Kanban_ e _Scrum_
   - _Docker_
+  - _Vite_
 
 ---
 
@@ -33,7 +34,7 @@ Você pode acessar um protótipo no link abaixo:
 
 # Instruções de execução
 
-[Deploy da aplicação](https://receitate.netlify.app/) 
+[Deploy da aplicação](https://receitate.netlify.app/)
 * caso queira testar por aqui vá direto para o passo `4`. :sunglasses:
 ---
 
@@ -58,7 +59,7 @@ Você pode acessar um protótipo no link abaixo:
    * Insira um email no formato `email@email.com`;
    * E uma senha com `8` dígitos;
       * Pra ficar mais fácil :smile:
-        Email: `email@email.com` 
+        Email: `email@email.com`
         Senha: `12345678`
 
 5. Interrompendo aplicação
