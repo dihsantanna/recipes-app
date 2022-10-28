@@ -1,7 +1,6 @@
 import { bool } from 'prop-types';
 import React, { useCallback, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import { fetchSearchRecipes } from '../../redux/actions';
 import Input from '../Input';
 
@@ -19,12 +18,6 @@ export default function SearchBar({ foodPage, open }) {
   const searchRecipes = useCallback((stateSearch) => (
     dispatch(fetchSearchRecipes(stateSearch))
   ), [dispatch]);
-
-  const setRecipes = useCallback((params) => (
-    dispatch(fetchSearchRecipes(params))
-  ), [dispatch]);
-
-  const recipes = useSelector((state) => state.recipesReducer.recipes);
 
   const validateConsultBy = (name, value) => {
     const { query, consultBy } = search;
@@ -50,22 +43,8 @@ export default function SearchBar({ foodPage, open }) {
 
   const { query, consultBy } = search;
 
-  const handlerRedirect = () => {
-    const typeRecipe = foodPage ? 'comidas' : 'bebidas';
-    const typeId = foodPage ? 'idMeal' : 'idDrink';
-
-    const PARAMS_NOT_FILTER = { query: '', consultBy: 'name', foodPage };
-
-    setRecipes(PARAMS_NOT_FILTER);
-
-    return <Redirect to={ `/${typeRecipe}/${recipes[0][typeId]}` } />;
-  };
-
   return (
     <nav className={ `nav-search ${open ? 'open-search' : 'close-search'}` }>
-      { recipes.length === 1
-        ? handlerRedirect()
-        : '' }
       <Input
         id="search-input"
         type="text"
