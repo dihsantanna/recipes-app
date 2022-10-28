@@ -1,4 +1,4 @@
-import { arrayOf, bool, number, shape, string } from 'prop-types';
+import { arrayOf, bool, number, objectOf, string } from 'prop-types';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import HandleFavoriteAndShare from '../../HandleFavoriteAndShare';
@@ -64,7 +64,14 @@ export default function MadeRecipesCard({ recipe, index, isFood, tags, doneDate 
 }
 
 MadeRecipesCard.propTypes = {
-  recipe: shape().isRequired,
+  recipe: objectOf({
+    image: string.isRequired,
+    name: string.isRequired,
+    category: string.isRequired,
+    area: string.isRequired,
+    alcoholicOrNot: string.isRequired,
+    id: string.isRequired,
+  }).isRequired,
   index: number.isRequired,
   isFood: bool.isRequired,
   tags: arrayOf(string).isRequired,

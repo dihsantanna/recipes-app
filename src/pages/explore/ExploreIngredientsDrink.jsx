@@ -1,6 +1,5 @@
-import { func } from 'prop-types';
-import React, { useEffect, useState } from 'react';
-import { connect } from 'react-redux';
+import React, { useCallback, useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import Footer from '../../components/Footer';
 import Header from '../../components/Header';
@@ -9,12 +8,18 @@ import Loading from '../../components/Loading';
 import { setIngredient } from '../../redux/actions';
 import { fetchIngredientsDrinksApi } from '../../services/fetchApi';
 
-function ExploreIngredientsDrink({ changeIngredient }) {
+export default function ExploreIngredientsDrink() {
   const [isMount, setIsMount] = useState(false);
   const [redirect, setRedirect] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [arrIngredients, setArrIngredients] = useState([]);
   const MAX_INDEX = 12;
+
+  const dispatch = useDispatch();
+
+  const changeIngredient = useCallback((ingredient) => (
+    dispatch(setIngredient(ingredient))
+  ), [dispatch]);
 
   const fetchIngredients = async () => {
     const ingredients = await fetchIngredientsDrinksApi();
@@ -55,13 +60,3 @@ function ExploreIngredientsDrink({ changeIngredient }) {
     </>
   );
 }
-
-const mapDispatchToProps = (dispatch) => ({
-  changeIngredient: (ingredient) => dispatch(setIngredient(ingredient)),
-});
-
-ExploreIngredientsDrink.propTypes = {
-  changeIngredient: func.isRequired,
-};
-
-export default connect(null, mapDispatchToProps)(ExploreIngredientsDrink);
