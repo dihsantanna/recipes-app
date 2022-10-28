@@ -1,10 +1,9 @@
-import { bool, func, number, shape } from 'prop-types';
+import { bool, func, number, objectOf, string } from 'prop-types';
 import React from 'react';
-import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import HandleFavoriteAndShare from '../../HandleFavoriteAndShare';
 
-function FavoriteRecipesCard({ recipe, index, isFood, removeFavorite }) {
+export default function FavoriteRecipesCard({ recipe, index, isFood, removeFavorite }) {
   const { image, name, category, area, alcoholicOrNot, id } = recipe;
   return (
     <div className="container-card">
@@ -48,15 +47,16 @@ function FavoriteRecipesCard({ recipe, index, isFood, removeFavorite }) {
   );
 }
 
-const mapStateToProps = (state) => ({
-  recipes: state.recipesReducer.recipes,
-});
-
 FavoriteRecipesCard.propTypes = {
-  recipe: shape().isRequired,
+  recipe: objectOf({
+    image: string.isRequired,
+    name: string.isRequired,
+    category: string.isRequired,
+    area: string.isRequired,
+    alcoholicOrNot: string.isRequired,
+    id: number.isRequired,
+  }).isRequired,
   index: number.isRequired,
   isFood: bool.isRequired,
   removeFavorite: func.isRequired,
 };
-
-export default connect(mapStateToProps)(FavoriteRecipesCard);
