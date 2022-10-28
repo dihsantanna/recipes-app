@@ -1,0 +1,30 @@
+.dropdown-container {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  padding: 2rem 0;
+  width: 100vw;
+
+  .select-explore {
+    background-color: $white;
+    border: 0.5px solid $smoke;
+    border-radius: 5px;
+    max-width: 300px;
+    outline: none;
+    padding: 0.5rem 0.75rem;
+    width: 70%;
+
+    option {
+
+      &:enabled {
+        background-color: $sweet-dark;
+        color: $smoke;
+      }
+
+      &:disabled {
+        background-color: $green-leaf;
+        color: $white;
+      }
+    }
+  }
+}
