@@ -94,6 +94,5 @@ Os end-points também são bastante ricos, você pode [vê-los aqui](https://www
 ---
 
 ## Adições futuras
-* Adicionar responsividade
 * Adicionar persistência em banco de dados, construindo uma nova api para gerenciamento de usuários e suas receitas salvas.
-* Refatoração para utilizar Redux-hooks.
+* Adicionar Testes.
