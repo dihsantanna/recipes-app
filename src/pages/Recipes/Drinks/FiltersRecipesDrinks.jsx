@@ -1,11 +1,18 @@
-import { func, string } from 'prop-types';
-import React, { useEffect, useState } from 'react';
-import { connect } from 'react-redux';
+import React, { useCallback, useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { fetchRecipesForCategory } from '../../../redux/actions';
 import { fetchCategoriesDrinksApi } from '../../../services/fetchApi';
 
-function FiltersRecipesDrinks({ getCategory, category }) {
+export default function FiltersRecipesDrinks() {
   const [categories, setCategories] = useState([]);
+
+  const dispatch = useDispatch();
+
+  const getCategory = useCallback((category) => (
+    dispatch(fetchRecipesForCategory(category))
+  ), [dispatch]);
+
+  const category = useSelector((state) => state.recipesReducer.selectCategory);
 
   const getCategories = () => {
     const fetchCategories = async () => {
@@ -54,18 +61,3 @@ function FiltersRecipesDrinks({ getCategory, category }) {
     </div>
   );
 }
-
-const mapStateToProps = (state) => ({
-  category: state.recipesReducer.selectCategory,
-});
-
-const mapDispatchToProps = (dispatch) => ({
-  getCategory: (category) => dispatch(fetchRecipesForCategory(category)),
-});
-
-FiltersRecipesDrinks.propTypes = {
-  getCategory: func.isRequired,
-  category: string.isRequired,
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(FiltersRecipesDrinks);
