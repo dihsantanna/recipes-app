@@ -54,7 +54,7 @@ FavoriteRecipesCard.propTypes = {
     category: string.isRequired,
     area: string.isRequired,
     alcoholicOrNot: string.isRequired,
-    id: number.isRequired,
+    id: string.isRequired,
   }).isRequired,
   index: number.isRequired,
   isFood: bool.isRequired,
