@@ -34,7 +34,7 @@ Você pode acessar um protótipo no link abaixo:
 
 # Instruções de execução
 
-[Deploy da aplicação](https://receitate.netlify.app/)
+[Deploy da aplicação](https://receitate.netlify.app/) (OFF) :cry:
 * caso queira testar por aqui vá direto para o passo `4`. :sunglasses:
 ---
 
