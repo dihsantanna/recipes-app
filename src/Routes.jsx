@@ -110,8 +110,8 @@ export default function Routes() {
         />
 
         <Route
-          path="/*"
-          component={ NotFound }
+          path="*"
+          element={ NotFound }
         />
 
       </Switch>
