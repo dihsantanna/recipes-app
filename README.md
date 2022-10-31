@@ -24,6 +24,8 @@ A base de dados são 2 APIs distintas, uma para comidas e outra para bebidas.
 
 O layout tem como foco dispositivos móveis `(360x640 pixels)`, então todos os protótipos estão desenvolvidos em telas menores.
 
+![Gif de demonstração do aplicativo](demonstracao.gif)
+
 ### Protótipo do projeto
 
 Você pode acessar um protótipo no link abaixo:
@@ -57,10 +59,10 @@ Você pode acessar um protótipo no link abaixo:
 
 4. Como aplicação é apenas front-end, possui validação simples para acessar
    * Insira um email no formato `email@email.com`;
-   * E uma senha com `8` dígitos;
+   * E uma senha com `7` dígitos;
       * Pra ficar mais fácil :smile:
         Email: `email@email.com`
-        Senha: `12345678`
+        Senha: `1234567`
 
 5. Interrompendo aplicação
   * Caso tenha utilizado o *Docker* execute o comando:
